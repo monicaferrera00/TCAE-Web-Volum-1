@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Temario Completo TCAE · SEPAD Extremadura 2025</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+:root{
+  --dark:#1a2332;--red:#c0392b;--teal:#16a085;--amber:#e67e22;--blue:#2980b9;
+  --mint:#d5f5e3;--peach:#fde8d8;--sky:#d6eaf8;--lred:#fadbd8;--yellow:#fef9c3;
+  --light:#f4f6f9;--white:#fff;--muted:#7f8c8d;--border:#dde1e7;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--dark);line-height:1.7;}
+.layout{display:flex;min-height:100vh;}
+.sidebar{
+  width:255px;flex-shrink:0;background:var(--dark);color:#cdd5df;
+  position:sticky;top:0;height:100vh;overflow-y:auto;padding:0 0 30px;
+}
+.sb-header{background:#111b27;padding:16px 14px 12px;border-bottom:2px solid var(--amber);margin-bottom:6px;}
+.sb-header h2{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:800;color:var(--amber);}
+.sb-header p{font-size:.7rem;color:#7f8c8d;margin-top:2px;}
+.sb-group-title{font-size:.66rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a5568;padding:8px 14px 3px;}
+.sb-item{display:block;padding:6px 14px 6px 18px;font-size:.78rem;color:#9aa5b4;border-left:3px solid transparent;cursor:pointer;transition:all .15s;}
+.sb-item:hover{background:rgba(255,255,255,.06);color:#e2e8f0;border-left-color:var(--teal);}
+.sb-item.active{background:rgba(22,160,133,.15);color:var(--teal);border-left-color:var(--teal);font-weight:600;}
+.sp{font-size:.62rem;padding:1px 5px;border-radius:10px;margin-left:4px;font-weight:700;}
+.pmax{background:#fadbd8;color:#c0392b;} .phigh{background:#fde8d8;color:#b7660d;}
+.pmid{background:#d6eaf8;color:#1a6fa3;} .plow{background:#eaecee;color:#5d6d7e;}
+.content{flex:1;padding:24px 28px;max-width:870px;}
+@media(max-width:768px){.layout{flex-direction:column;}.sidebar{width:100%;height:auto;position:relative;}.content{padding:16px 14px;}}
+.section{display:none;} .section.active{display:block;}
+.topic-header{border-radius:12px;padding:20px 22px;margin-bottom:22px;color:white;}
+.topic-header h1{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;line-height:1.35;}
+.topic-header .meta{margin-top:5px;font-size:.8rem;opacity:.85;}
+.topic-header .badges{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:20px;}
+.bw{background:rgba(255,255,255,.22);color:white;}
+.bmax{background:#fadbd8;color:#c0392b;} .bhigh{background:#fde8d8;color:#b7660d;}
+.bmid{background:#d6eaf8;color:#2471a3;} .blow{background:#eaecee;color:#5d6d7e;}
+.tb{background:white;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:16px;overflow:hidden;}
+.tb h2{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.tb .body{padding:14px 16px;}
+.tb p{font-size:.86rem;margin-bottom:9px;line-height:1.75;}
+.tb ul,.tb ol{padding-left:18px;margin-bottom:9px;}
+.tb li{font-size:.86rem;margin-bottom:4px;line-height:1.6;}
+.ss{margin-bottom:12px;}
+.ss h3{font-size:.87rem;font-weight:700;color:var(--teal);border-left:3px solid var(--teal);padding-left:9px;margin-bottom:7px;}
+.ss h4{font-size:.82rem;font-weight:700;color:var(--dark);margin:9px 0 4px;}
+.tw{overflow-x:auto;margin-bottom:12px;}
+table{width:100%;border-collapse:collapse;font-size:.81rem;}
+th{background:var(--dark);color:white;padding:8px 10px;text-align:left;font-weight:700;}
+td{padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:nth-child(even) td{background:var(--light);}
+.al{border-radius:9px;padding:11px 14px;font-size:.84rem;margin-bottom:12px;display:flex;gap:9px;line-height:1.6;}
+.ai{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.al.info{background:var(--sky);} .al.warn{background:var(--yellow);}
+.al.danger{background:var(--lred);} .al.success{background:var(--mint);}
+.trap{background:var(--lred);border-left:4px solid var(--red);border-radius:0 9px 9px 0;padding:10px 13px;margin-bottom:9px;font-size:.83rem;}
+.trap strong{color:var(--red);}
+.qa{background:var(--sky);border-radius:9px;padding:11px 13px;margin-bottom:9px;}
+.qa-q{font-weight:600;font-size:.84rem;margin-bottom:5px;}
+.qa-btn{background:var(--teal);color:white;border:none;border-radius:6px;padding:3px 11px;font-size:.76rem;font-weight:600;cursor:pointer;}
+.qa-a{background:var(--mint);border-radius:6px;padding:7px 11px;font-size:.82rem;margin-top:7px;display:none;}
+.qa-a.shown{display:block;}
+.mn{background:var(--yellow);border-left:4px solid var(--amber);border-radius:0 9px 9px 0;padding:11px 13px;margin:12px 0;font-size:.84rem;}
+.mn strong{color:#b7660d;}
+.def{background:var(--dark);color:white;border-radius:9px;padding:13px 15px;margin-bottom:12px;font-size:.85rem;line-height:1.65;}
+.def .term{font-family:'Syne',sans-serif;font-size:.78rem;color:var(--amber);font-weight:700;margin-bottom:3px;}
+.kf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;margin-bottom:14px;}
+.kf{background:white;border-radius:9px;padding:11px 13px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-top:3px solid var(--teal);}
+.kf .v{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--teal);}
+.kf .l{font-size:.73rem;color:var(--muted);margin-top:1px;}
+.stages{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.stage{display:flex;gap:9px;align-items:flex-start;padding:9px 12px;border-radius:9px;font-size:.83rem;}
+.stage .n{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;flex-shrink:0;min-width:26px;}
+.print-btn{background:var(--teal);color:white;border:none;border-radius:8px;padding:8px 16px;font-size:.83rem;font-weight:600;cursor:pointer;margin-bottom:18px;}
+.rbar{height:3px;background:linear-gradient(90deg,var(--teal),var(--amber));position:fixed;top:0;left:0;z-index:200;transition:width .2s;}
+@media print{.sidebar,.print-btn,.rbar{display:none!important;}.section{display:block!important;}.content{padding:0;}.tb{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="rbar" id="rbar" style="width:0%"></div>
+<div class="layout">
+<nav class="sidebar">
+  <div class="sb-header"><h2>TCAE · SEPAD 2025</h2><p>Temario completo · Vol. 1</p></div>
+  <div class="sb-group-title">Inicio</div>
+  <span class="sb-item active" onclick="show('home')">🏠 Portada y guía de uso</span>
+  <div class="sb-group-title">Ya dominados ✓</div>
+  <span class="sb-item" onclick="show('t1')">T1 · Centros Residenciales <span class="sp plow">✓</span></span>
+  <span class="sb-item" onclick="show('t2')">T2 · Atención al Anciano <span class="sp plow">✓</span></span>
+  <div class="sb-group-title">🔴 Prioridad máxima</div>
+  <span class="sb-item" onclick="show('t3')">T3 · Alzheimer y demencias <span class="sp pmax">⭐⭐⭐</span></span>
+  <span class="sb-item" onclick="show('t4')">T4 · Paciente diabético <span class="sp pmax">⭐⭐⭐</span></span>
+  <span class="sb-item" onclick="show('t5')">T5 · Incontinencia urinaria <span class="sp pmax">⭐⭐⭐</span></span>
+  <span class="sb-item" onclick="show('t7')">T7 · Paciente encamado <span class="sp pmax">⭐⭐⭐</span></span>
+  <span class="sb-item" onclick="show('t8')">T8 · Deambulación y traslados <span class="sp pmax">⭐⭐⭐</span></span>
+  <div class="sb-group-title">🟠 Muy importante</div>
+  <span class="sb-item" onclick="show('t6')">T6 · Estreñimiento y enemas <span class="sp phigh">⭐⭐</span></span>
+  <span class="sb-item" onclick="show('t9')">T9 · Higiene y exploración <span class="sp phigh">⭐⭐</span></span>
+  <span class="sb-item" onclick="show('t10')">T10 · Paciente terminal <span class="sp phigh">⭐⭐</span></span>
+  <div class="sb-group-title">🔵 Secundario</div>
+  <span class="sb-item" onclick="show('t11')">T11 · PAE y cuidados <span class="sp pmid">⭐</span></span>
+</nav>
+<main class="content" id="main">
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+<!-- HOME -->
+<div class="section active" id="home">
+  <div class="topic-header" style="background:linear-gradient(135deg,#1a2332,#2c3e50)">
+    <h1>Temario Completo TCAE · SEPAD · Extremadura 2025</h1>
+    <div class="meta">Volumen 1 · 11 temas · Teoría desarrollada con enfoque de examen</div>
+    <div class="badges"><span class="bw badge">Convocatoria DOE nº250 · 27 dic 2024</span><span class="bw badge">Grupo IV · Auxiliar de Enfermería</span></div>
+  </div>
+  <div class="tb"><h2 style="background:var(--mint)">📖 Cómo usar este temario</h2><div class="body">
+    <div class="al info"><div class="ai">💡</div><div>Usa el <strong>menú lateral</strong> para navegar entre temas. Cada tema incluye teoría completa, tablas, trampas típicas de examen y preguntas con respuesta oculta. Los temas 1 y 2 están incluidos para consulta.</div></div>
+    <div class="tw"><table><tr><th>Prioridad</th><th>Temas</th><th>Estrategia</th></tr>
+    <tr><td><span class="badge bmax">🔴 Máxima</span></td><td>T3, T4, T5, T7, T8</td><td>Estudiar primero · Repasar siempre · ~70% del examen</td></tr>
+    <tr><td><span class="badge bhigh">🟠 Alta</span></td><td>T6, T9, T10</td><td>Segunda vuelta obligatoria · Mínimo 2 repasos</td></tr>
+    <tr><td><span class="badge bmid">🔵 Media</span></td><td>T11</td><td>Repaso rápido en última semana</td></tr>
+    <tr><td><span class="badge blow">⚪ Dominados</span></td><td>T1, T2</td><td>Solo repaso exprés + trampas puntuales</td></tr></table></div>
+  </div></div>
+</div>
+
+<!-- T1 -->
+<div class="section" id="t1">
+  <div class="topic-header" style="background:linear-gradient(135deg,#27ae60,#1e8449)">
+    <h1>Tema 1 · Centros Residenciales. Destinatarios. Servicios. Alternativas a la institucionalización. Red de recursos</h1>
+    <div class="meta">Páginas 11–30 del manual</div>
+    <div class="badges"><span class="bw badge">Ya estudiado</span><span class="blow badge">Repaso exprés</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--mint)">1. Centros Residenciales — Destinatarios y Servicios</h2><div class="body">
+    <p>En Extremadura, los centros residenciales están diseñados para ofrecer <strong>atención integral</strong> a quienes, por edad o dependencia, necesitan asistencia especializada. Para acceder es necesario un procedimiento del <strong>SEPAD</strong> que incluye la evaluación del grado de dependencia.</p>
+    <div class="ss"><h3>Destinatarios</h3><ul>
+      <li>Personas mayores que no pueden permanecer en su domicilio habitual.</li>
+      <li>Individuos en situación de dependencia que necesitan apoyo constante para las ABVD.</li>
+    </ul></div>
+    <div class="ss"><h3>Servicios principales</h3><ul>
+      <li><strong>Alojamiento y manutención:</strong> espacios adaptados y alimentación equilibrada.</li>
+      <li><strong>Atención sanitaria:</strong> control médico, enfermería y seguimiento general.</li>
+      <li><strong>Asistencia en ABVD:</strong> higiene personal, vestimenta, movilidad.</li>
+      <li><strong>Programas de rehabilitación:</strong> terapias físicas y ocupacionales.</li>
+      <li><strong>Actividades recreativas y sociales:</strong> talleres, eventos, dinámicas grupales.</li>
+      <li><strong>Servicios de lavandería y limpieza.</strong></li>
+    </ul></div>
+    <div class="ss"><h3>Recursos hospitalarios para el anciano</h3>
+    <div class="tw"><table><tr><th>Unidad</th><th>Características</th></tr>
+    <tr><td><strong>Geriátrica de Agudos</strong></td><td>Diagnóstico y tratamiento enfermedad aguda; estancia media ≤15 días</td></tr>
+    <tr><td><strong>Media Estancia</strong></td><td>Recuperación/rehabilitación; estancia media &lt;30 días</td></tr>
+    <tr><td><strong>Larga Estancia</strong></td><td>Cuidados clínicos y de enfermería crónicos</td></tr>
+    <tr><td><strong>Psicogeriatría</strong></td><td>Diagnóstico y orientación terapéutica de patologías mentales</td></tr>
+    <tr><td><strong>Hospital de Día</strong></td><td>Rehabilitación y capacitación para ABVD</td></tr>
+    <tr><td><strong>Consulta de Valoración</strong></td><td>Valoración integral del anciano</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--mint)">2. Alternativas a la Institucionalización</h2><div class="body">
+    <div class="ss"><h3>2.1 Ayuda a Domicilio (SAD)</h3>
+    <p>Atenciones de carácter doméstico, social y de apoyo psicológico en el propio domicilio. Finalidad <strong>preventiva, asistencial e integradora</strong>.</p>
+    <ul>
+      <li><strong>Ayuda doméstica:</strong> alimentación, ropa, limpieza y mantenimiento del hogar.</li>
+      <li><strong>Ayuda personal:</strong> compañía, higiene personal, toma de alimentos, movilización.</li>
+      <li><strong>Ayudas técnicas:</strong> teleasistencia, adaptación del hogar.</li>
+    </ul>
+    <div class="al warn"><div class="ai">📌</div><div>Límite del SAD: <strong>máximo 2 horas/día o 52 horas/mes</strong>.</div></div></div>
+    <div class="ss"><h3>2.2 Servicios Sociales de Base — Decreto 12/1997, de 21 de enero</h3>
+    <ul>
+      <li>Información, Valoración y Orientación.</li>
+      <li>Animación Comunitaria.</li>
+      <li>Ayuda a Domicilio.</li>
+      <li>Convivencia e Inserción Social.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--mint)">3. SEPAD y Red de Recursos</h2><div class="body">
+    <div class="def"><div class="term">SEPAD</div>Servicio Extremeño de Promoción de la Autonomía y Atención a la Dependencia. Ente Público creado por <strong>Ley 1/2008, de 22 de mayo</strong>. Ejerce sus competencias conforme a la <strong>Ley 39/2006, de 14 de diciembre</strong> (Ley de Dependencia). Dispone de <strong>82 centros</strong> en Extremadura, estructurado en 2 Gerencias Territoriales (Badajoz y Cáceres).</div>
+    <div class="ss"><h3>Centros SEPAD por zona</h3>
+    <div class="tw"><table><tr><th>Tipo de centro</th><th>Badajoz</th><th>Cáceres</th></tr>
+    <tr><td>Residenciales y Centros de Mayores</td><td>10+11+19=40</td><td>10+13=23</td></tr>
+    <tr><td>Atención a Personas con Demencia</td><td>1+1+2=4</td><td>2+4=6</td></tr>
+    <tr><td>Atención a Personas con Discapacidad</td><td>1+1+0=2</td><td>2+3=5</td></tr>
+    </table></div></div>
+    <div class="ss"><h3>CADEX</h3>
+    <p>Centros de Atención a la Discapacidad de Extremadura. Realizan el reconocimiento y valoración del grado de discapacidad. Ubicados en <strong>Cáceres y Badajoz</strong> (ámbito provincial). Atienden desde los 0 años.</p></div>
+    <div class="ss"><h3>Atención Primaria al anciano</h3><ul>
+      <li><strong>Visita domiciliaria:</strong> para mayores de 80 años, que viven solos, enfermos graves o terminales.</li>
+      <li><strong>Consulta programada:</strong> control enfermedades crónicas.</li>
+      <li><strong>Vacunaciones básicas:</strong> antitetánica y antigripal.</li>
+      <li><strong>Enfermero Comunitario de Enlace:</strong> coordina cuidados interniveles; objetivo: atención integral y continuada en el domicilio.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas frecuentes</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> El SAD tiene límite de <strong>2 horas/día o 52 horas/mes</strong> — no es ilimitado.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Los CADEX están en Cáceres Y Badajoz — no solo en una provincia.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> La ley que crea el SEPAD es la <strong>Ley 1/2008</strong> (autonómica). La 39/2006 es la Ley de Dependencia estatal.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Unidad de Agudos ≤15 días / Media Estancia &lt;30 días — las confunden frecuentemente.</div>
+  </div></div>
+</div>
+<!-- T2 -->
+<div class="section" id="t2">
+  <div class="topic-header" style="background:linear-gradient(135deg,#27ae60,#1e8449)">
+    <h1>Tema 2 · Atención de la Auxiliar en la Persona Anciana. Cambios físicos del Envejecimiento. Medidas de apoyo a la cuidadora. PACIC Extremadura</h1>
+    <div class="meta">Páginas 31–86 del manual</div>
+    <div class="badges"><span class="bw badge">Ya estudiado</span><span class="blow badge">Repaso exprés</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--mint)">1. Demografía del envejecimiento</h2><div class="body">
+    <div class="kf-grid">
+      <div class="kf"><div class="v">65+</div><div class="l">Umbral definición "anciano"</div></div>
+      <div class="kf"><div class="v">26,5%</div><div class="l">Pob. ≥65 años en España en 2035</div></div>
+      <div class="kf"><div class="v">3%</div><div class="l">Tasa crecimiento envej. Extremadura/año</div></div>
+      <div class="kf"><div class="v">94-97%</div><div class="l">Mayores de 65 en domicilio en Europa</div></div>
+    </div>
+    <div class="ss"><h3>Pirámides de población</h3><ul>
+      <li><strong>Progresiva (pirámide):</strong> base ancha, más jóvenes — países en desarrollo.</li>
+      <li><strong>Estacionaria (ojival):</strong> edades medias predominan.</li>
+      <li><strong>Regresiva (ánfora):</strong> más ancianos que jóvenes — países envejecidos.</li>
+    </ul>
+    <p><strong>Índice de Sundbarg:</strong> Joven (&lt;8% mayores de 65) · Transición (8-11%) · Envejecida (&gt;11%).</p></div>
+    <div class="ss"><h3>Definiciones clave</h3>
+    <div class="tw"><table><tr><th>Término</th><th>Definición</th></tr>
+    <tr><td><strong>Anciano sano</strong></td><td>Mayor de 65 años sin patología ni problemas funcionales, mentales o sociales</td></tr>
+    <tr><td><strong>Anciano frágil</strong></td><td>Mayor de 80 años, vive solo, ha perdido a su pareja — riesgo de deterioro</td></tr>
+    <tr><td><strong>Paciente geriátrico</strong></td><td>Edad avanzada con enfermedades crónicas y discapacidad evidente</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--mint)">2. Cambios físicos del envejecimiento</h2><div class="body">
+    <div class="tw"><table><tr><th>Sistema</th><th>Cambios principales</th><th>Consecuencias</th></tr>
+    <tr><td><strong>Piel</strong></td><td>Pérdida elasticidad, arrugas, manchas seniles, atrofia glándulas sebáceas</td><td>Mayor riesgo UPP, sequedad, infecciones</td></tr>
+    <tr><td><strong>Cardiovascular</strong></td><td>Arterioesclerosis, aumento presión sistólica, menor gasto cardíaco</td><td>HTA, riesgo IAM, menor tolerancia esfuerzo</td></tr>
+    <tr><td><strong>Respiratorio</strong></td><td>Disminución capacidad vital, rigidez torácica, menor reflejo tusígeno</td><td>Mayor riesgo neumonía, dificultad expectorar</td></tr>
+    <tr><td><strong>Musculoesquelético</strong></td><td>Sarcopenia, osteoporosis, desgaste cartílago articular</td><td>Caídas, fracturas (cadera), artrosis</td></tr>
+    <tr><td><strong>Neurológico</strong></td><td>Disminución neuronas, enlentecimiento conducción, alteración sueño</td><td>Mayor tiempo de reacción, riesgo demencia</td></tr>
+    <tr><td><strong>Sensorial</strong></td><td>Presbicia, presbiacusia, menor gusto/olfato</td><td>Aislamiento social, menor ingesta alimentaria</td></tr>
+    <tr><td><strong>Genitourinario</strong></td><td>Menor filtrado glomerular, hipertrofia prostática, atrofia vaginal</td><td>Incontinencia urinaria, infecciones urinarias</td></tr>
+    <tr><td><strong>Digestivo</strong></td><td>Menor motilidad, menor secreción gástrica, atrofia mucosa</td><td>Estreñimiento, malabsorción, disfagia</td></tr>
+    <tr><td><strong>Endocrino</strong></td><td>Alteración tolerancia glucosa, menor insulina</td><td>Mayor riesgo DM tipo 2</td></tr>
+    </table></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--mint)">3. Cambios psicológicos y sociales</h2><div class="body">
+    <div class="ss"><h3>Cambios psicológicos</h3><ul>
+      <li>Disminución de la <strong>memoria reciente</strong> (la remota se conserva mejor).</li>
+      <li>Disminución de la <strong>autoestima</strong>: relacionada con pérdida del rol laboral, deterioro físico, viudedad.</li>
+      <li>Mecanismos de respuesta: <strong>separación</strong> (alejamiento), <strong>integración</strong> (aceptación resignada), <strong>actividad</strong> (búsqueda de utilidad).</li>
+    </ul></div>
+    <div class="ss"><h3>Cambios sociales</h3><ul>
+      <li><strong>Crisis de jubilación:</strong> pérdida de rol, red social laboral, poder adquisitivo.</li>
+      <li>Signos de dificultades relacionales: aislamiento (posición fetal, no inicia conversación), alteraciones cognoscitivas a corto plazo.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--mint)">4. Apoyo a la cuidadora y PACIC Extremadura</h2><div class="body">
+    <div class="ss"><h3>Índice de Estrés del Cuidador (IEC)</h3>
+    <p>Evalúa la carga del cuidador principal. Puntuación <strong>≥7 = alto grado de estrés</strong> que requiere intervención.</p>
+    <p>9 reglas para el cuidador: dormir suficiente · dieta saludable · ejercicio regular · reconocimiento médico · no abusar alcohol ni drogas · vida social activa · objetivos propios · buscar ayuda · usar servicios comunitarios.</p></div>
+    <div class="ss"><h3>PACIC — Proceso Asistencial Integrado al Paciente Crónico Complejo</h3>
+    <div class="def"><div class="term">Definición PACIC</div>Proceso que identifica, valora y coordina la atención de pacientes crónicos complejos en Extremadura mediante atención integral, anticipatoria y centrada en el paciente y su entorno cuidador, en el ámbito del SES.</div>
+    <ul>
+      <li><strong>Criterios de inclusión:</strong> al menos un criterio mayor y un criterio menor.</li>
+      <li><strong>Límite de salida:</strong> fallecimiento, traslado fuera del SES, cambio en situación global o decisión del paciente/familia.</li>
+      <li><strong>Límites marginales (exclusión):</strong> terapia renal sustitutiva, trasplante, neoplasia activa con tratamiento curativo.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas frecuentes</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> IEC ≥7 = alto estrés (no ≥5 ni ≥10).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> La memoria <strong>reciente</strong> se deteriora antes que la remota en el envejecimiento normal.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> El PACIC excluye pacientes con neoplasia activa con tratamiento <strong>curativo</strong> (no paliativo).</div>
+  </div></div>
+</div>
+
+<!-- T3 -->
+<div class="section" id="t3">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--red),#922b21)">
+    <h1>Tema 3 · Patologías Psicogeriatricas. Alzheimer y otras demencias. Criterios y grados. Cuidados de la Auxiliar</h1>
+    <div class="meta">Páginas 87–150 del manual</div>
+    <div class="badges"><span class="bmax badge">⭐⭐⭐ CRÍTICO</span><span class="bw badge">Máxima rentabilidad examen</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--lred)">1. Psicopatología — Conceptos y Teorías</h2><div class="body">
+    <div class="tw"><table><tr><th>Teoría</th><th>Base</th><th>Representante</th></tr>
+    <tr><td>Conductista</td><td>Conducta aprendida por refuerzo y castigo. Conductas gratificadas se repiten</td><td>Skinner, Watson</td></tr>
+    <tr><td>Psicodinámica</td><td>Conflictos psicológicos internos de las primeras etapas del desarrollo</td><td>Freud</td></tr>
+    <tr><td>Humanista</td><td>Necesidades secundarias no cubiertas; origen social de la enfermedad mental</td><td>Maslow, Rogers</td></tr>
+    <tr><td>Social</td><td>Estructuras sociales condicionan la Salud Mental</td><td>Sullivan, Honey</td></tr>
+    <tr><td>Cognitiva</td><td>Conducta desajustada = errores en procesamiento de la información</td><td>Beck, Ellis</td></tr>
+    </table></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">2. Principales Trastornos Psicogeriatricos</h2><div class="body">
+    <div class="ss"><h3>2.1 Trastornos de ansiedad</h3>
+    <div class="tw"><table><tr><th>Tipo</th><th>Características clave</th></tr>
+    <tr><td>Ansiedad simple</td><td>Alteración emocional persistente; no precisa tratamiento farmacológico; equipo de salud colabora en resolución</td></tr>
+    <tr><td>Ansiedad generalizada</td><td>Crónica; resolución positiva con apoyo del equipo</td></tr>
+    <tr><td>Trastorno fóbico</td><td>Temor irracional ante objeto/situación específica → conducta de evitación</td></tr>
+    <tr><td>Ataque de angustia (pánico)</td><td>Crisis recurrentes de angustia espontáneas</td></tr>
+    </table></div></div>
+    <div class="ss"><h3>2.2 Trastornos depresivos</h3><ul>
+      <li><strong>Depresión mayor:</strong> trastorno mental <strong>más frecuente en la sociedad</strong>.</li>
+      <li><strong>Distimia (trastorno depresivo persistente):</strong> depresión crónica de largo plazo (DSM-V).</li>
+    </ul></div>
+    <div class="ss"><h3>2.3 Trastorno bipolar</h3>
+    <p>Psicosis afectiva con alternancia de fases maníaca y depresiva. También: psicosis fasotímica, ciclotimia.</p><ul>
+      <li><strong>Fase maníaca:</strong> euforia, hiperactividad, logorrea, fuga de ideas, insomnio, comportamiento violento o autodestructivo.</li>
+      <li><strong>Fase depresiva:</strong> apatía, tristeza profunda, culpabilidad, disminución autoestima.</li>
+      <li>Tratamiento: antidepresivos, neurolépticos, ansiolíticos; riesgo grave → terapia electroconvulsiva (TEC).</li>
+    </ul></div>
+    <div class="ss"><h3>2.4 Esquizofrenia</h3>
+    <p>Síntomas primarios de Kurt Schneider: percepción delirante, alucinaciones auditivas, robo de pensamiento, vivencias de influencia.<br/>Síntomas secundarios: alteraciones delirantes, trastornos del lenguaje, catatonía, autismo.</p></div>
+    <div class="ss"><h3>2.5 Psicofármacos</h3>
+    <div class="tw"><table><tr><th>Grupo</th><th>Uso</th><th>Efectos adversos principales</th></tr>
+    <tr><td><strong>Benzodiacepinas / Ansiolíticos</strong></td><td>Ansiedad, insomnio, agitación</td><td>Somnolencia, sequedad de boca, estreñimiento, descenso libido</td></tr>
+    <tr><td><strong>Neurolépticos / Antipsicóticos</strong></td><td>Esquizofrenia, psicosis, agitación</td><td>Parkinsonismo, discinesia, sequedad de boca, estreñimiento</td></tr>
+    <tr><td><strong>Antidepresivos</strong></td><td>Depresión, ansiedad, TOC</td><td>Sequedad boca, sudoración, taquicardia, temblor, amenorrea</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">3. Demencias — Clasificación ⭐⭐⭐</h2><div class="body">
+    <div class="def"><div class="term">Demencia</div>Pérdida insidiosa y progresiva de capacidades mentales, suficientemente grave para interferir en el funcionamiento ocupacional. Afecta a memoria, aprendizaje, atención y juicio. Es la forma más común de enfermedad orgánica cerebral.</div>
+    <div class="tw"><table><tr><th colspan="2">PRIMARIAS (Corticales)</th><th colspan="2">SECUNDARIAS</th></tr>
+    <tr><th>Irreversibles</th><th>Subcorticales</th><th>Irreversibles</th><th>Reversibles/Metabólicas</th></tr>
+    <tr><td><strong>Alzheimer</strong> (más frecuente)<br/>Enfermedad de Pick</td>
+    <td>Corea de Huntington<br/>Creutzfeldt-Jacob<br/>Parkinson<br/>Parálisis General Progresiva</td>
+    <td>Vascular · Hemorrágica<br/>Anóxica · Postecefalítica<br/>Traumática</td>
+    <td>Alcohol, medicamentos<br/>Hipotiroidismo, déficit Vit B12<br/>Insuf. renal/hepática<br/>Hidrocefalia normotensiva<br/>Depresión</td></tr>
+    </table></div>
+    <div class="al success"><div class="ai">💡</div><div><strong>Clave:</strong> Demencia vascular = inicio <strong>brusco y escalonado</strong>. Alzheimer = inicio <strong>gradual e insidioso</strong>. Las reversibles son las secundarias metabólicas.</div></div>
+    <div class="ss"><h3>Manifestaciones clínicas generales de demencia</h3><ol>
+      <li>Disminución de la capacidad intelectual.</li>
+      <li>Disfunción cognoscitiva: afasia, apraxia, agnosia.</li>
+      <li>Déficit de memoria.</li>
+      <li>Cambios de la personalidad.</li>
+    </ol></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">4. Enfermedad de Alzheimer ⭐⭐⭐</h2><div class="body">
+    <p>Causa <strong>más frecuente</strong> de demencia (60-70% de los casos). Inicio gradual e insidioso.</p>
+    <p><strong>Etiopatogenia:</strong> acumulación de <em>placas de beta-amiloide</em> y <em>ovillos neurofibrilares</em> (proteína TAU). Contracción del hipocampo y la corteza cerebral. 8 genes implicados (Psen1, Psen2, APP, TAU…); la forma familiar precoz se asocia a cromosomas 14, 19 y 21.</p>
+    <div class="def"><div class="term">Las 4 A's del Alzheimer — memoriza sí o sí</div>
+    <strong>Amnesia</strong> (pérdida de memoria — primero la reciente) · <strong>Afasia</strong> (alteración del lenguaje) · <strong>Apraxia</strong> (incapacidad de realizar movimientos aprendidos) · <strong>Agnosia</strong> (incapacidad de reconocer objetos o personas)</div>
+    <div class="ss"><h3>Escala GDS (Global Deterioration Scale) — 7 estadios</h3>
+    <div class="stages">
+      <div class="stage" style="background:#e8f8f5"><div class="n" style="color:var(--teal)">1</div><div><strong>Sin déficit cognitivo:</strong> Funcionamiento normal, sin quejas subjetivas.</div></div>
+      <div class="stage" style="background:#eafaf1"><div class="n" style="color:var(--teal)">2</div><div><strong>Deterioro muy leve:</strong> Olvidos subjetivos (nombres, objetos). No objetivable clínicamente. Normal para la edad.</div></div>
+      <div class="stage" style="background:#fef9e7"><div class="n" style="color:var(--amber)">3</div><div><strong>Deterioro leve:</strong> Se pierde en lugares conocidos, errores laborales. Primeros signos en exploración clínica. Ansiedad.</div></div>
+      <div class="stage" style="background:#fde8d8"><div class="n" style="color:var(--amber)">4</div><div><strong>Deterioro moderado:</strong> Dificultad con tareas complejas (finanzas, planificación). Puede negar el déficit. Aplanamiento afectivo.</div></div>
+      <div class="stage" style="background:#fadbd8"><div class="n" style="color:var(--red)">5</div><div><strong>Deterioro moderado-severo:</strong> No puede realizar ABVD sin ayuda. No recuerda dirección ni teléfono. Conserva nombre propio y familiares próximos.</div></div>
+      <div class="stage" style="background:#f5b7b1"><div class="n" style="color:var(--red)">6</div><div><strong>Deterioro severo:</strong> Incontinencia. No reconoce al cónyuge. Necesita ayuda para vestirse, asearse, ir al baño. Agitación y deambulación.</div></div>
+      <div class="stage" style="background:#e74c3c;color:white"><div class="n" style="color:white">7</div><div><strong>Deterioro muy severo:</strong> Pérdida del habla (máx. 5-6 palabras). Incontinencia total. Encamamiento. Hipertonía muscular.</div></div>
+    </div></div>
+    <div class="ss"><h3>Tratamientos para el Alzheimer (actualización 2025)</h3><ul>
+      <li><strong>Lecanemab (Leqembi):</strong> anticuerpo monoclonal aprobado FDA; se une a beta-amiloide soluble; ralentiza el deterioro en fases tempranas.</li>
+      <li><strong>Donanemab (Kisunla):</strong> reduce placas de beta-amiloide; aprobado para fases iniciales.</li>
+      <li>Terapias con células madre e inhibidores de neuroinflamación: en investigación.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">5. Cuidados de la Auxiliar al Paciente con Demencia ⭐⭐⭐</h2><div class="body">
+    <div class="ss"><h3>5.1 Principios generales</h3><ul>
+      <li>Mantener <strong>rutinas fijas</strong>: horarios regulares de comidas, aseo y actividades.</li>
+      <li>Entorno seguro: eliminar objetos peligrosos, buena iluminación.</li>
+      <li>Conservar la <strong>orientación en la realidad</strong>: reloj y calendario visibles, nombre del sitio bien visible.</li>
+      <li>Comenzar tareas pequeñas y a corto plazo que el paciente pueda completar con éxito.</li>
+      <li>Reforzar logros personales (vestimenta, arreglo personal).</li>
+      <li>Mantener la <strong>seguridad y dignidad</strong> hasta el máximo posible.</li>
+    </ul></div>
+    <div class="ss"><h3>5.2 Técnicas de comunicación</h3><ul>
+      <li>Frases <strong>cortas y simples</strong>; una sola instrucción a la vez.</li>
+      <li>Contacto visual directo; hablar a la misma altura.</li>
+      <li>Voz tranquila y calmada; nunca gritar aunque no responda.</li>
+      <li>Llamar siempre por el nombre del paciente.</li>
+      <li><strong>Técnica de validación:</strong> aceptar la realidad emocional del paciente (no contradecir ni discutir).</li>
+      <li>Contacto físico (mano, hombro) como refuerzo comunicativo.</li>
+    </ul></div>
+    <div class="ss"><h3>5.3 Manejo de alteraciones conductuales</h3>
+    <div class="tw"><table><tr><th>Conducta</th><th>Intervención de la auxiliar</th></tr>
+    <tr><td>Agitación/agresividad</td><td>Mantener calma, no confrontar; identificar y eliminar el estímulo; derivar a actividad serena</td></tr>
+    <tr><td>Deambulación nocturna</td><td>Ambiente seguro, luz nocturna; informar al equipo</td></tr>
+    <tr><td>Alucinaciones</td><td>No contradecir; tranquilizar; distraer con otra actividad</td></tr>
+    <tr><td>Incontinencia</td><td>Programar micciones regulares; facilitar acceso al baño; no reñir</td></tr>
+    </table></div></div>
+    <div class="al danger"><div class="ai">🚨</div><div><strong>Contención física:</strong> es la <strong>última opción</strong>. Siempre requiere <strong>prescripción médica escrita</strong>. La auxiliar nunca la aplica por propia iniciativa. Debe revisarse periódicamente y documentarse.</div></div>
+    <div class="ss"><h3>5.4 Técnicas psicoterapéuticas</h3>
+    <div class="tw"><table><tr><th>Técnica</th><th>Descripción</th></tr>
+    <tr><td>Terapia de orientación a la realidad</td><td>Estimular continuamente la conciencia del entorno (fecha, lugar, personas)</td></tr>
+    <tr><td>Terapia de validación</td><td>Aceptar y validar la realidad emocional del paciente con demencia avanzada</td></tr>
+    <tr><td>Reminiscencia</td><td>Estimular recuerdos del pasado para mejorar autoestima y comunicación</td></tr>
+    <tr><td>Terapia ocupacional</td><td>Mantener capacidades funcionales mediante actividades significativas</td></tr>
+    <tr><td>Biofeedback</td><td>Control voluntario de cambios fisiológicos; útil en ansiedad e insomnio</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> GDS = escala cognitiva (7 estadios). FAST = escala funcional. Distintas — preguntan cuál evalúa qué.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Alzheimer = inicio GRADUAL. Demencia vascular = inicio BRUSCO/escalonado.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Agnosia ≠ ceguera. Es no reconocer objetos/personas a pesar de verlos.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Alucinaciones más típicas de Demencia con Cuerpos de Lewy — NO de Alzheimer.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Trastorno mental más frecuente en la sociedad = <strong>depresión</strong> (no esquizofrenia).</div>
+    <div class="mn">🧠 <strong>4A's:</strong> "AAAA" → Amnesia · Afasia · Apraxia · Agnosia</div>
+    <div class="qa"><div class="qa-q">¿Cuántos estadios tiene la GDS?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">7 estadios (del 1 sin déficit al 7 deterioro muy severo)</div></div>
+    <div class="qa"><div class="qa-q">¿Qué diferencia la demencia vascular del Alzheimer?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">La demencia vascular tiene inicio brusco y evolución escalonada. El Alzheimer tiene inicio gradual e insidioso.</div></div>
+    <div class="qa"><div class="qa-q">¿Qué síntoma aparece primero en el Alzheimer?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Pérdida de memoria reciente (amnesia anterógrada) — la memoria remota se conserva más tiempo.</div></div>
+    <div class="qa"><div class="qa-q">¿La contención física puede aplicarla la auxiliar por propia iniciativa?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">NO. Requiere siempre prescripción médica escrita. Es la última opción de intervención.</div></div>
+  </div></div>
+</div>
+<!-- T4 -->
+<div class="section" id="t4">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--red),#922b21)">
+    <h1>Tema 4 · Paciente Diabético. Concepto de Diabetes. Cuidados. Pie Diabético</h1>
+    <div class="meta">Páginas 151–186 del manual</div>
+    <div class="badges"><span class="bmax badge">⭐⭐⭐ CRÍTICO</span><span class="bw badge">Números exactos en examen</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--lred)">1. Tipos de Diabetes Mellitus</h2><div class="body">
+    <div class="def"><div class="term">Diabetes Mellitus (DM)</div>Trastorno metabólico crónico caracterizado por hiperglucemia mantenida debida a déficit de secreción de insulina, a déficit de su acción, o a ambos. Provoca daño crónico en órganos diana (ojos, riñones, nervios, corazón, vasos).</div>
+    <div class="tw"><table><tr><th></th><th>DM Tipo 1</th><th>DM Tipo 2</th><th>DM Gestacional</th></tr>
+    <tr><td><strong>Mecanismo</strong></td><td>Autoinmune: destrucción células β del páncreas</td><td>Resistencia a la insulina + déficit relativo</td><td>Resistencia insulina por hormonas placentarias</td></tr>
+    <tr><td><strong>Inicio</strong></td><td>Brusco, infancia/juventud</td><td>Gradual, adultos/mayores</td><td>2º-3º trimestre gestación</td></tr>
+    <tr><td><strong>Frecuencia</strong></td><td>5-10% de los diabéticos</td><td><strong>90%</strong> de todos los diabéticos</td><td>4-7%</td></tr>
+    <tr><td><strong>Tratamiento</strong></td><td>Insulina obligatoria</td><td>Dieta + ADO ± insulina</td><td>Dieta ± insulina</td></tr>
+    <tr><td><strong>Peso</strong></td><td>Normopeso / bajo peso</td><td>Generalmente obesos</td><td>—</td></tr>
+    </table></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">2. Criterios Diagnósticos ADA ⭐⭐⭐</h2><div class="body">
+    <div class="al danger"><div class="ai">🎯</div><div>Estos números son los que más caen en examen. <strong>Memoriza los 4 criterios.</strong></div></div>
+    <div class="kf-grid">
+      <div class="kf"><div class="v" style="color:var(--red)">≥126</div><div class="l">mg/dl glucemia en ayunas (≥8h)</div></div>
+      <div class="kf"><div class="v" style="color:var(--red)">≥200</div><div class="l">mg/dl al azar + síntomas cardinales</div></div>
+      <div class="kf"><div class="v" style="color:var(--red)">≥200</div><div class="l">mg/dl a las 2h de SOG (75g glucosa)</div></div>
+      <div class="kf"><div class="v" style="color:var(--red)">≥6,5%</div><div class="l">HbA1c (hemoglobina glicosilada)</div></div>
+    </div>
+    <div class="ss"><h3>Rangos de glucemia de referencia</h3>
+    <div class="tw"><table><tr><th>Valor en ayunas</th><th>Significado</th></tr>
+    <tr><td>&lt;100 mg/dl</td><td>Normal</td></tr>
+    <tr><td>100–109 mg/dl</td><td>Glucemia basal alterada (GBA)</td></tr>
+    <tr><td><strong>110–125 mg/dl</strong></td><td><strong>Prediabetes / Glucemia alterada en ayunas</strong></td></tr>
+    <tr><td><strong>≥126 mg/dl</strong></td><td><strong>Criterio diagnóstico de DM</strong></td></tr>
+    </table></div></div>
+    <div class="ss"><h3>HbA1c</h3>
+    <p>Mide el control glucémico de los <strong>últimos 3 meses</strong> (90 días). No es la glucemia del día — es la media de los últimos 3 meses. Valor diagnóstico ≥6,5%.</p></div>
+    <div class="ss"><h3>SOG para DM gestacional (100g glucosa)</h3>
+    <p>Valores normales: Basal 95 · 1h 180 · 2h 155 · 3h 140 mg/dl. Si 2 o más valores son iguales o superiores → diagnóstico positivo.</p></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">3. Síntomas y Complicaciones</h2><div class="body">
+    <div class="ss"><h3>Las 3P's de la Hiperglucemia</h3>
+    <div class="kf-grid">
+      <div class="kf"><div class="v">Poliuria</div><div class="l">Exceso de orina</div></div>
+      <div class="kf"><div class="v">Polidipsia</div><div class="l">Exceso de sed</div></div>
+      <div class="kf"><div class="v">Polifagia</div><div class="l">Exceso de hambre</div></div>
+    </div>
+    <p>También: pérdida de peso, astenia, visión borrosa.</p></div>
+    <div class="ss"><h3>Hipoglucemia — Complicación aguda más frecuente</h3>
+    <div class="def"><div class="term">Hipoglucemia</div>Glucemia &lt;70 mg/dl. Síntomas: temblor, sudoración fría, palidez, taquicardia, confusión, hambre intensa. En casos severos: pérdida de consciencia, convulsiones.</div>
+    <div class="al warn"><div class="ai">⚡</div><div><strong>Protocolo de la auxiliar:</strong> Si está consciente → dar azúcar (zumo, azúcar, glucosa oral) → avisar al médico/enfermera. Si está inconsciente → NO dar nada oral → posición lateral de seguridad → llamar urgencias.</div></div></div>
+    <div class="ss"><h3>Complicaciones crónicas</h3>
+    <div class="tw"><table><tr><th>Tipo</th><th>Órgano</th><th>Complicación</th></tr>
+    <tr><td>Microangiopatía</td><td>Retina</td><td>Retinopatía diabética → ceguera</td></tr>
+    <tr><td>Microangiopatía</td><td>Riñón</td><td>Nefropatía diabética → IRC</td></tr>
+    <tr><td>Neuropatía</td><td>Nervios periféricos</td><td>Pérdida de sensibilidad en extremidades</td></tr>
+    <tr><td>Macroangiopatía</td><td>Corazón, cerebro</td><td>IAM, ACV — riesgo x2-4</td></tr>
+    <tr><td>Pie diabético</td><td>Pie</td><td>Úlceras, infección, gangrena</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">4. Pie Diabético — Clasificación de Wagner ⭐⭐⭐</h2><div class="body">
+    <p>Surge por la combinación de <strong>neuropatía periférica</strong> (pérdida sensibilidad) + <strong>isquemia</strong> (mala circulación) + <strong>infección</strong>.</p>
+    <div class="stages">
+      <div class="stage" style="background:#e8f8f5"><div class="n" style="color:var(--teal)">0</div><div><strong>Wagner 0:</strong> Pie en riesgo. Sin úlceras pero con deformidades o callosidades. Piel íntegra.</div></div>
+      <div class="stage" style="background:#fef9e7"><div class="n" style="color:var(--amber)">1</div><div><strong>Wagner 1:</strong> Úlcera superficial. Afecta solo piel y tejido celular subcutáneo. Sin infección.</div></div>
+      <div class="stage" style="background:#fde8d8"><div class="n" style="color:var(--amber)">2</div><div><strong>Wagner 2:</strong> Úlcera profunda. Llega a tendones, cápsula articular o hueso. Puede haber infección local.</div></div>
+      <div class="stage" style="background:#fadbd8"><div class="n" style="color:var(--red)">3</div><div><strong>Wagner 3:</strong> Úlcera profunda con absceso, <strong>osteomielitis</strong> (infección ósea) o artritis séptica.</div></div>
+      <div class="stage" style="background:#f5b7b1"><div class="n" style="color:var(--red)">4</div><div><strong>Wagner 4:</strong> Gangrena localizada (dedo o zona del antepié).</div></div>
+      <div class="stage" style="background:#e74c3c;color:white"><div class="n" style="color:white">5</div><div><strong>Wagner 5:</strong> Gangrena extensa en todo el pie. Requiere amputación mayor.</div></div>
+    </div>
+    <div class="ss"><h3>Cuidados del pie diabético — Labor TCAE</h3><ul>
+      <li>Nunca caminar <strong>descalzo</strong>.</li>
+      <li>Inspección diaria: buscar heridas, eritemas, ampollas.</li>
+      <li>Lavar con agua tibia (30-35ºC), secar bien <strong>entre los dedos</strong>.</li>
+      <li>Cortar uñas en línea <strong>recta</strong> (nunca en curva ni demasiado cortas).</li>
+      <li>Calcetines de algodón sin costuras ni gomas apretadas.</li>
+      <li>Calzado cómodo, suave, sin costuras internas.</li>
+      <li>No aplicar calor directo (bolsas de agua caliente).</li>
+      <li>Hidratar la piel evitando los espacios interdigitales.</li>
+      <li>Ante cualquier cambio: avisar al médico/enfermera.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> 110-125 mg/dl = <strong>prediabetes</strong>, NO diabetes todavía.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> HbA1c = media de los últimos 3 meses, NO glucemia del día del análisis.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Wagner 0 = pie en RIESGO sin úlcera (no es pie normal).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Hipoglucemia inconsciente → NO dar nada oral (riesgo aspiración).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> DM más frecuente = tipo 2 (90%), no tipo 1.</div>
+    <div class="mn">🧠 <strong>Diagnóstico DM:</strong> "126 en ayunas o 200 con síntomas"</div>
+    <div class="qa"><div class="qa-q">¿Cuál es la glucemia en ayunas diagnóstica de DM?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">≥126 mg/dl en ayunas (al menos 8 horas de ayuno)</div></div>
+    <div class="qa"><div class="qa-q">¿Qué mide la HbA1c?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">El control glucémico de los últimos 3 meses. Es diagnóstica si ≥6,5%.</div></div>
+    <div class="qa"><div class="qa-q">¿Qué grado de Wagner corresponde a osteomielitis?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Wagner 3 (úlcera profunda con osteomielitis, absceso o artritis séptica)</div></div>
+    <div class="qa"><div class="qa-q">¿Cómo se cortan las uñas al paciente diabético?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">En línea recta, sin redondear las esquinas, sin cortarlas demasiado cortas.</div></div>
+  </div></div>
+</div>
+
+<!-- T5 -->
+<div class="section" id="t5">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--red),#922b21)">
+    <h1>Tema 5 · Incontinencia Urinaria en el Anciano. Definición y Tipos. Sondas Vesicales y Catéteres</h1>
+    <div class="meta">Páginas 187–230 del manual</div>
+    <div class="badges"><span class="bmax badge">⭐⭐⭐ CRÍTICO</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--lred)">1. Anatomía básica del aparato urinario</h2><div class="body">
+    <p>La orina es producida en los <strong>riñones</strong>, transportada por los <strong>uréteres</strong>, almacenada en la <strong>vejiga</strong> y expulsada por la <strong>uretra</strong>.</p><ul>
+      <li><strong>Uretra femenina:</strong> ~4 cm. Muy corta → mayor riesgo de infecciones urinarias.</li>
+      <li><strong>Uretra masculina:</strong> ~20 cm. Tramos: prostática (3 cm), membranosa (2,5 cm), esponjosa/peneana (15 cm).</li>
+      <li>Control miccional: músculo detrusor (contracción = vaciado), esfínter uretral interno (involuntario), esfínter uretral externo (voluntario).</li>
+    </ul>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">2. Tipos de Incontinencia Urinaria ⭐⭐⭐</h2><div class="body">
+    <div class="def"><div class="term">Incontinencia Urinaria (IU)</div>Pérdida involuntaria de orina por la uretra que condiciona un problema higiénico y/o social demostrable objetivamente. Afecta al 35% de hombres y 15% de mujeres mayores de 60 años. En residencias el porcentaje aumenta significativamente.</div>
+    <div class="tw"><table><tr><th>Tipo</th><th>Mecanismo</th><th>Características</th><th>Más frecuente en</th></tr>
+    <tr><td><strong>Esfuerzo / Estrés</strong></td><td>Incompetencia esfinteriana sin hiperactividad del detrusor</td><td>Pérdida al toser, reír, estornudar. Volumen pequeño</td><td>Mujeres (partos, menopausia)</td></tr>
+    <tr><td><strong>Urgencia / Inestabilidad vesical</strong></td><td>Hiperactividad contráctil del detrusor</td><td>Deseo imperioso de orinar, polaquiuria, pérdidas frecuentes y voluminosas</td><td>Ancianos, Parkinson, Alzheimer — <strong>MÁS FRECUENTE EN ANCIANOS</strong></td></tr>
+    <tr><td><strong>Rebosamiento / Paradójica</strong></td><td>Retención urinaria crónica → rebosamiento</td><td>Goteo constante (gota a gota). Vejiga siempre llena</td><td>Hombres con HBP, neuropatía diabética</td></tr>
+    <tr><td><strong>Funcional</strong></td><td>Sin causa urológica. Barrera física o cognitiva impide llegar al baño</td><td>El aparato urinario funciona bien; el problema es la movilidad o cognición</td><td>Ancianos institucionalizados con deterioro cognitivo o movilidad reducida</td></tr>
+    </table></div>
+    <div class="mn">🧠 <strong>"UREF"</strong> → Urgencia · Rebosamiento · Esfuerzo · Funcional</div>
+    <div class="ss"><h3>Tratamiento no farmacológico</h3><ul>
+      <li><strong>Ejercicios de Kegel</strong> (Arnold Kegel, 1894-1981): fortalecen la musculatura del suelo pélvico. Indicados en IU de esfuerzo principalmente.</li>
+      <li><strong>Micción programada:</strong> horario regular de micciones cada 2-3 horas.</li>
+      <li><strong>Fisioterapia perineal:</strong> técnicas manuales e instrumentales para restaurar el suelo pélvico.</li>
+    </ul></div>
+    <div class="al warn"><div class="ai">⚠️</div><div>Las <strong>lesiones por humedad</strong> (derivadas de la IU) se presentan como eritema en "espejo" en ambos glúteos. Es importante diferenciarlas de las UPP, aunque pueden coexistir.</div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">3. Sondas Vesicales y Catéteres ⭐⭐⭐</h2><div class="body">
+    <div class="ss"><h3>Tipos de sondas</h3>
+    <div class="tw"><table><tr><th>Sonda</th><th>Característica</th><th>Uso</th></tr>
+    <tr><td><strong>Foley</strong></td><td>Doble vía. Balón hinchable de fijación. Flexible (látex o silicona)</td><td><strong>Sonda de permanencia</strong> — puede mantenerse días-semanas</td></tr>
+    <tr><td><strong>Nelson</strong></td><td>Rígida, punta olivar. Sin balón</td><td>Sondaje evacuante puntual</td></tr>
+    <tr><td><strong>Coudé</strong></td><td>Punta curva o acodada</td><td>Pacientes con <strong>hipertrofia benigna de próstata</strong></td></tr>
+    <tr><td><strong>Tres vías</strong></td><td>Triple vía: agua, orina, irrigación</td><td>Irrigación continua vesical (postoperatorio urológico)</td></tr>
+    </table></div></div>
+    <div class="ss"><h3>Sonda de Foley — Datos clave</h3><ul>
+      <li>Balón se hincha con <strong>5-10 ml de suero fisiológico</strong> (NUNCA agua destilada).</li>
+      <li>Bolsa colectora siempre <strong>por debajo del nivel de la vejiga</strong> (evitar reflujo).</li>
+      <li>Calibre en French (Fr): mujeres 14-16 Fr; hombres 16-18 Fr.</li>
+    </ul></div>
+    <div class="ss"><h3>Cuidados de la sonda vesical — Labor TCAE</h3><ul>
+      <li><strong>Higiene meatal</strong> al menos 2 veces/día con agua y jabón (desde el meato hacia afuera).</li>
+      <li>Bolsa siempre por debajo de la vejiga.</li>
+      <li>No doblar ni comprimir el tubo.</li>
+      <li>Vaciar la bolsa cuando esté llena a 2/3 de su capacidad.</li>
+      <li>Registrar la diuresis: cantidad, color, aspecto.</li>
+      <li>No desconectar el sistema cerrado sin indicación de enfermería.</li>
+      <li>Vigilar signos de infección: orina turbia, fiebre, dolor suprapúbico, mal olor.</li>
+      <li>Fijar la sonda a la cara interna del muslo (evitar tracciones).</li>
+    </ul></div>
+    <div class="ss"><h3>Complicaciones del sondaje</h3><ul>
+      <li><strong>ITU (infección urinaria):</strong> más frecuente. Bacterias que ascienden por la sonda.</li>
+      <li><strong>Obstrucción:</strong> coágulos, sedimento, acodamiento.</li>
+      <li><strong>Traumatismo uretral:</strong> técnica incorrecta o tracción excesiva.</li>
+      <li><strong>Urosepsis:</strong> complicación grave por infección sistémica.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> IU urgencia ≠ esfuerzo. Urgencia = vejiga hiperactiva. Esfuerzo = aumento presión abdominal.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Balón sonda Foley = suero fisiológico. NUNCA agua destilada.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Bolsa colectora: SIEMPRE por debajo de la vejiga (nunca por encima).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Sonda Coudé = próstata. Sonda Nelson = evacuante puntual (sin balón).</div>
+    <div class="qa"><div class="qa-q">¿Qué tipo de IU es más frecuente en el anciano?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">IU de urgencia (por hiperactividad vesical del detrusor)</div></div>
+    <div class="qa"><div class="qa-q">¿Con qué se llena el balón de la sonda de Foley?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Con suero fisiológico (5-10 ml). Nunca con agua destilada.</div></div>
+    <div class="qa"><div class="qa-q">¿Qué sonda se usa en pacientes con hipertrofia prostática?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Sonda de Coudé (punta curva), para sortear la próstata aumentada.</div></div>
+  </div></div>
+</div>
+<!-- T6 -->
+<div class="section" id="t6">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--amber),#d35400)">
+    <h1>Tema 6 · Estreñimiento en el Anciano. Concepto y Causas más Frecuentes. Complicaciones. Enemas: tipos, aplicación, material y cuidados</h1>
+    <div class="meta">Páginas 231–284 del manual</div>
+    <div class="badges"><span class="bhigh badge">⭐⭐ MUY IMPORTANTE</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--peach)">1. Estreñimiento en el Anciano</h2><div class="body">
+    <div class="def"><div class="term">Estreñimiento</div>Menos de 3 deposiciones por semana, con heces duras, secas y de difícil expulsión. Afecta al <strong>30%</strong> de los ancianos institucionalizados. Es uno de los problemas gastrointestinales más frecuentes en geriatría.</div>
+    <div class="ss"><h3>Causas principales en el anciano</h3>
+    <div class="tw"><table><tr><th>Causa</th><th>Mecanismo / Observación</th></tr>
+    <tr><td><strong>Inmovilidad</strong></td><td>Reduce el peristaltismo intestinal — causa más frecuente en ancianos institucionalizados</td></tr>
+    <tr><td><strong>Deshidratación</strong></td><td>Heces más duras y secas</td></tr>
+    <tr><td><strong>Dieta pobre en fibra</strong></td><td>Menor masa fecal, tránsito intestinal más lento</td></tr>
+    <tr><td><strong>Fármacos</strong></td><td>Opioides, anticolinérgicos, calcioantagonistas, hierro, antiácidos con aluminio</td></tr>
+    <tr><td>Hipotiroidismo</td><td>Menor metabolismo → enlentecimiento tránsito</td></tr>
+    <tr><td>Patología anorrectal</td><td>Hemorroides, fisuras (dolor → evitan defecar)</td></tr>
+    <tr><td>Factores psicológicos</td><td>Depresión, demencia, ignorar el reflejo defecatorio</td></tr>
+    </table></div></div>
+    <div class="ss"><h3>Complicación grave: Fecaloma (impactación fecal)</h3>
+    <div class="al danger"><div class="ai">🚨</div><div>El fecaloma es una masa fecal endurecida impactada en el recto. Puede causar <strong>falsa diarrea</strong>: la materia líquida se cuela alrededor del tapón fecal. Ante un anciano con "diarrea" súbita siempre descartar fecaloma <strong>antes</strong> de administrar antidiarreicos. También puede causar retención urinaria y obstrucción intestinal.</div></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">2. Enemas — Tipos y Técnica ⭐⭐⭐</h2><div class="body">
+    <div class="tw"><table><tr><th>Tipo de enema</th><th>Composición</th><th>Objetivo</th><th>Retención</th></tr>
+    <tr><td><strong>Evacuante</strong></td><td>Solución salina isotónica (1.000-1.500 ml)</td><td>Limpieza y vaciado intestinal</td><td>NO — se expulsa</td></tr>
+    <tr><td><strong>De retención</strong></td><td>Aceite (oliva, parafina)</td><td>Ablandar las heces. Lubricar</td><td><strong>SÍ — retener 30 minutos</strong></td></tr>
+    <tr><td><strong>Medicamentoso</strong></td><td>Medicamento diluido (ej. corticoides)</td><td>Administrar fármaco por vía rectal</td><td>Sí — según indicación</td></tr>
+    <tr><td><strong>Opaco (de bario)</strong></td><td>Sulfato de bario</td><td>Diagnóstico radiológico del colon</td><td>Procedimiento diagnóstico</td></tr>
+    </table></div>
+    <div class="ss"><h3>Técnica de administración del enema</h3><ul>
+      <li><strong>Posición:</strong> decúbito lateral izquierdo (posición Sims). Facilita el acceso al sigma.</li>
+      <li><strong>Temperatura:</strong> <strong>37-38ºC</strong>. Si muy fría → espasmo; si muy caliente → quemadura mucosa.</li>
+      <li><strong>Sonda rectal:</strong> introducir <strong>8-10 cm</strong> en adulto. Lubricar con vaselina o gel lubricante.</li>
+      <li>Introducir el líquido lentamente (5-10 min) para evitar el reflejo expulsor.</li>
+      <li>Pedir al paciente aguantar el mayor tiempo posible (mín. 5-10 min evacuante; 30 min retención).</li>
+      <li>Tener cuña/baño accesible.</li>
+    </ul></div>
+    <div class="ss"><h3>Contraindicaciones del enema</h3><ul>
+      <li>Cirugía rectal o anal reciente.</li>
+      <li>Perforación intestinal o peritonitis.</li>
+      <li>Obstrucción intestinal.</li>
+      <li>Hemorragia rectal activa.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> Posición del enema: lateral <strong>IZQUIERDO</strong> (no derecho, no supino).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Enema de retención = aceite, se queda. Enema evacuante = solución salina, se expulsa.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Falsa diarrea en anciano → puede ser fecaloma. NO tratar con antidiarreicos sin explorar antes.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Profundidad sonda rectal: <strong>8-10 cm</strong> exactos (ni 5 ni 15).</div>
+    <div class="mn">🧠 <strong>Retención = RETENER</strong> (aceite se queda 30 min). <strong>Evacuante = EVACUAR</strong> (sale todo)</div>
+    <div class="qa"><div class="qa-q">¿En qué posición se administra el enema?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Decúbito lateral izquierdo (posición Sims)</div></div>
+    <div class="qa"><div class="qa-q">¿A qué temperatura se administra el enema?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">37-38ºC (temperatura corporal)</div></div>
+    <div class="qa"><div class="qa-q">¿Cuánto tiempo se retiene el enema de retención?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">30 minutos (para que el aceite ablande las heces)</div></div>
+  </div></div>
+</div>
+
+<!-- T7 -->
+<div class="section" id="t7">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--red),#922b21)">
+    <h1>Tema 7 · Atención al Paciente Encamado: Posiciones Anatómicas, Higiene Postural, Higiene y Cuidado Bucal, Pelo y Uñas. La Piel y Lesiones</h1>
+    <div class="meta">Páginas 285–344 del manual</div>
+    <div class="badges"><span class="bmax badge">⭐⭐⭐ CRÍTICO</span><span class="bw badge">Posiciones + UPP = puntos garantizados</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--lred)">1. Posiciones Anatómicas ⭐⭐⭐</h2><div class="body">
+    <div class="tw"><table><tr><th>Posición</th><th>Descripción</th><th>Uso principal</th></tr>
+    <tr><td><strong>Decúbito supino</strong></td><td>Boca arriba, cara al techo, extremidades extendidas</td><td>Exploración general, reposo</td></tr>
+    <tr><td><strong>Decúbito prono</strong></td><td>Boca abajo, cara al colchón</td><td>Exploración dorsal, prevención UPP sacra</td></tr>
+    <tr><td><strong>Decúbito lateral</strong></td><td>Sobre un costado (derecho o izquierdo), rodilla superior flexionada</td><td>Prevención UPP, enemas, reposo</td></tr>
+    <tr><td><strong>Fowler</strong></td><td>Semisentado a <strong>45-60º</strong>. Cabecera elevada</td><td>Dificultad respiratoria, alimentación, prevención aspiración</td></tr>
+    <tr><td><strong>Semi-Fowler</strong></td><td>Semisentado a <strong>30-45º</strong></td><td>Variante más suave de Fowler</td></tr>
+    <tr><td><strong>Trendelenburg</strong></td><td>Decúbito supino con <strong>cabeza hacia abajo</strong> y pies elevados (15-30º)</td><td>Shock hipovolémico, procedimientos vasculares</td></tr>
+    <tr><td><strong>Trendelenburg inverso</strong></td><td>Cabeza elevada, pies hacia abajo</td><td>Reflujo gastroesofágico, cirugía abdominal</td></tr>
+    <tr><td><strong>Sims (semilateral/semiprono)</strong></td><td>Entre lateral y prono. Rodilla superior muy flexionada, brazo inferior hacia atrás</td><td>Enemas, exploración rectal, posición de seguridad</td></tr>
+    <tr><td><strong>Litotomía (ginecológica)</strong></td><td>Decúbito supino con caderas y rodillas flexionadas, piernas en estribos</td><td>Exploración ginecológica, sondaje</td></tr>
+    <tr><td><strong>Genupectoral (mahometana)</strong></td><td>Rodillas y pecho apoyados en la cama, caderas elevadas</td><td>Exploración rectal, alivio dolor pélvico</td></tr>
+    </table></div>
+    <div class="mn">🧠 <strong>Fowler</strong> = 45-60º (no es sentado a 90º). <strong>Semi-Fowler</strong> = 30-45º.</div>
+    <div class="mn">🧠 <strong>Trendelenburg:</strong> "En SHOCK, los pies al CIELO" → cabeza abajo, pies arriba.</div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">2. Lesiones por Presión (UPP) ⭐⭐⭐</h2><div class="body">
+    <div class="def"><div class="term">Úlcera por Presión (UPP)</div>Lesión de la piel y los tejidos subyacentes que resulta de la presión sostenida sobre una prominencia ósea, generalmente en combinación con cizalla. Antes llamadas "escaras" o "úlceras de decúbito".</div>
+    <div class="ss"><h3>Localización más frecuente según posición</h3>
+    <div class="tw"><table><tr><th>Posición</th><th>Zonas de mayor riesgo</th></tr>
+    <tr><td>Decúbito supino</td><td><strong>Sacro</strong> (más frecuente en general), occipucio, escápulas, talones, codos</td></tr>
+    <tr><td>Decúbito lateral</td><td>Trocánter mayor, maléolo externo, rodilla, costillas, oreja</td></tr>
+    <tr><td>Decúbito prono</td><td>Frente, nariz, pecho, rodillas, dedos de los pies</td></tr>
+    <tr><td>Sedestación</td><td>Isquion, sacro, talones</td></tr>
+    </table></div></div>
+    <div class="ss"><h3>Estadios de UPP ⭐⭐⭐</h3>
+    <div class="stages">
+      <div class="stage" style="background:#eafaf1"><div class="n" style="color:var(--teal)">I</div><div><strong>Estadio I:</strong> Piel <strong>ÍNTEGRA</strong> con eritema no blanqueable. La piel NO está rota. El eritema no desaparece al presionar con el dedo (a diferencia del eritema normal que sí blanquea).</div></div>
+      <div class="stage" style="background:#fef9e7"><div class="n" style="color:var(--amber)">II</div><div><strong>Estadio II:</strong> Pérdida parcial del espesor de la piel. Úlcera superficial (lecho rosado/rojo sin esfacelos). También puede ser una ampolla íntegra o rota rellena de suero.</div></div>
+      <div class="stage" style="background:#fde8d8"><div class="n" style="color:var(--amber)">III</div><div><strong>Estadio III:</strong> Pérdida total del espesor de la piel. El tejido subcutáneo es visible. Puede haber esfacelos (tejido amarillo/blanco necrótico). <em>No se ven hueso, tendón ni músculo todavía.</em></div></div>
+      <div class="stage" style="background:#e74c3c;color:white"><div class="n" style="color:white">IV</div><div><strong>Estadio IV:</strong> Pérdida total de espesor con afectación ósea, tendinosa o muscular. Se puede ver y tocar hueso, tendón o músculo. Riesgo de osteomielitis.</div></div>
+    </div>
+    <div class="al warn"><div class="ai">➕</div><div>También existen <strong>UPP no clasificables</strong> (profundidad desconocida por esfacelos) y <strong>UPP de tejidos profundos</strong> (zona violácea con piel intacta → daño profundo previo).</div></div></div>
+    <div class="ss"><h3>Escala de Braden (valoración del riesgo)</h3>
+    <p>Valora 6 subescalas: <strong>Percepción sensorial · Humedad · Actividad · Movilidad · Nutrición · Fricción/cizalla</strong>.</p>
+    <div class="al danger"><div class="ai">🎯</div><div>Puntuación <strong>&lt;16 puntos = riesgo ALTO</strong> de UPP. A menor puntuación, mayor riesgo. Escala de 6 a 23 puntos totales.</div></div></div>
+    <div class="ss"><h3>Prevención de UPP — Intervenciones TCAE</h3><ul>
+      <li><strong>Cambios posturales</strong> cada 2 horas en encamados; cada hora en sedestación.</li>
+      <li>Superficies especiales de manejo de la presión (colchones y cojines antiescaras).</li>
+      <li>Mantener la piel limpia y seca (especialmente en incontinentes).</li>
+      <li>Hidratar la piel con cremas emolientes.</li>
+      <li><strong>NO masajear</strong> las prominencias óseas enrojecidas (aumenta el daño tisular).</li>
+      <li>Correcta nutrición e hidratación del paciente.</li>
+      <li>Técnica de movilización correcta: evitar el arrastre (genera fricción y cizalla).</li>
+      <li>Apósitos protectores profiláticos en zonas de riesgo (sacro, talones).</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">3. Mecánica Corporal para el Cuidador</h2><div class="body">
+    <ul>
+      <li>Mantener la <strong>espalda recta</strong> y los pies separados (base amplia de sustentación).</li>
+      <li>Flexionar las <strong>rodillas</strong> al agacharse — nunca doblar la espalda.</li>
+      <li>Acercar el objeto o paciente al cuerpo antes de movilizarlo.</li>
+      <li>Usar los músculos de las piernas (más grandes y fuertes) para levantar.</li>
+      <li>Contraer abdominales y glúteos antes del esfuerzo.</li>
+      <li>Reducir al mínimo la fricción: deslizar mejor que levantar cuando sea posible.</li>
+      <li>Trabajar a altura adecuada: demasiado alto = hipertensión lumbar; demasiado bajo = espalda doblada.</li>
+      <li>Siempre mejor empujar/deslizar que tirar.</li>
+      <li>Pedir ayuda o usar dispositivos mecánicos cuando la carga sea excesiva.</li>
+    </ul>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> UPP Estadio I: la piel está <strong>ÍNTEGRA</strong> — solo hay eritema no blanqueable, no hay herida.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Braden puntuación BAJA = MAYOR riesgo (no al revés).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Fowler = 45-60º. Sentado = 90º. Son distintos ángulos.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> NO masajear las prominencias óseas enrojecidas — aumenta el daño tisular.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> UPP Estadio IV = se ve/toca hueso. Estadio III = llega a subcutáneo pero NO al hueso.</div>
+    <div class="mn">🧠 <strong>Estadios UPP:</strong> I=Íntegra · II=ampolla · III=Subcutáneo · IV=hueso → cada vez más PROFUNDO</div>
+    <div class="qa"><div class="qa-q">¿En qué estadio UPP la piel está íntegra?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Estadio I (eritema no blanqueable con piel íntegra — la piel NO está rota)</div></div>
+    <div class="qa"><div class="qa-q">¿Cada cuánto se hacen los cambios posturales en el encamado?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Cada 2 horas en el encamado; cada hora en sedestación.</div></div>
+    <div class="qa"><div class="qa-q">¿Qué posición se usa en el shock hipovolémico?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Trendelenburg (cabeza abajo, pies elevados)</div></div>
+    <div class="qa"><div class="qa-q">¿Cuál es la zona más frecuente de UPP en el encamado en supino?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">El sacro</div></div>
+  </div></div>
+</div>
+
+<!-- T8 -->
+<div class="section" id="t8">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--red),#922b21)">
+    <h1>Tema 8 · Técnicas de Deambulación. Técnicas de Transferencias: movilización del paciente cama-sillón, cama-silla de ruedas y otras. Traslados de pacientes</h1>
+    <div class="meta">Páginas 345–374 del manual</div>
+    <div class="badges"><span class="bmax badge">⭐⭐⭐ CRÍTICO</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--lred)">1. Ayudas Técnicas para la Marcha ⭐⭐⭐</h2><div class="body">
+    <div class="tw"><table><tr><th>Ayuda</th><th>Característica</th><th>Indicación</th><th>Dato clave examen</th></tr>
+    <tr><td><strong>Bastón simple</strong></td><td>Un punto de apoyo</td><td>Debilidad leve de una extremidad, equilibrio</td><td>Se coloca en el lado <strong>SANO</strong></td></tr>
+    <tr><td><strong>Bastón inglés (de codo)</strong></td><td>Con apoyo en antebrazo</td><td>Mayor apoyo que el bastón simple</td><td>Lado sano; regulación: trocánter mayor</td></tr>
+    <tr><td><strong>Muletas axilares</strong></td><td>Apoyo axilar + mano</td><td>No apoyar extremidad inferior</td><td>Regulación: trocánter mayor / 15 cm lateral al pie</td></tr>
+    <tr><td><strong>Andador</strong></td><td>Marco con 4 puntos de apoyo</td><td>Inestabilidad grave, debilidad bilateral</td><td>Los 4 puntos se apoyan <strong>simultáneamente</strong></td></tr>
+    <tr><td><strong>Silla de ruedas</strong></td><td>Desplazamiento sin carga</td><td>Imposibilidad de deambulación</td><td>Descender rampa <strong>de espaldas</strong></td></tr>
+    </table></div>
+    <div class="al danger"><div class="ai">🎯</div><div><strong>CLAVE:</strong> El bastón va siempre en el lado <strong>SANO</strong> (contralateral a la extremidad afectada). El bastón del lado sano descarga el peso de la pierna enferma del lado opuesto.</div></div>
+    <div class="ss"><h3>Técnicas de marcha con muletas</h3>
+    <div class="tw"><table><tr><th>Marcha</th><th>Secuencia</th><th>Carga</th></tr>
+    <tr><td><strong>2 tiempos</strong></td><td>T1: ambas muletas + pierna enferma → T2: pierna sana</td><td>Descarga parcial</td></tr>
+    <tr><td><strong>3 tiempos</strong></td><td>T1: ambas muletas → T2: pierna enferma → T3: pierna sana</td><td>Sin carga de la enferma</td></tr>
+    <tr><td><strong>4 tiempos</strong></td><td>T1: muleta izquierda → T2: pie derecho → T3: muleta derecha → T4: pie izquierdo</td><td>Carga bilateral parcial</td></tr>
+    <tr><td><strong>A saltitos</strong></td><td>Ambas muletas adelante → salto con pierna sana</td><td>Sin carga de la enferma</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">2. Técnicas de Transferencia ⭐⭐⭐</h2><div class="body">
+    <div class="ss"><h3>Transferencia cama → sillón/silla de ruedas</h3><ul>
+      <li>Colocar la silla en <strong>ángulo de 45º</strong> respecto a la cama, del lado sano del paciente.</li>
+      <li>La transferencia siempre se hace <strong>hacia el lado sano</strong> primero.</li>
+      <li>Poner <strong>frenos</strong> a la silla de ruedas siempre antes de transferir.</li>
+      <li>Elevar los reposapiés antes de transferir.</li>
+      <li>Ayudar al paciente a sentarse al borde de la cama primero (dangling).</li>
+      <li>Bajar los pies al suelo y girar hacia la silla.</li>
+    </ul></div>
+    <div class="ss"><h3>Normas generales de seguridad</h3><ul>
+      <li>Frenos siempre bloqueados antes de transferir.</li>
+      <li>Calzado antideslizante en el paciente.</li>
+      <li>Nunca tirar del brazo afectado (hemipléjico) para movilizar.</li>
+      <li>La auxiliar mantiene su mecánica corporal correcta en todo momento.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">3. Traslados de Pacientes</h2><div class="body">
+    <div class="ss"><h3>Traslado en camilla</h3><ul>
+      <li>El paciente viaja con la <strong>cabeza hacia adelante</strong> (a favor de la marcha).</li>
+      <li>Al girar, el del extremo de la cabeza dirige el movimiento.</li>
+      <li>En ascensores: entrar con los pies por delante.</li>
+      <li>Barandillas subidas durante el traslado. Mínimo 2 personas.</li>
+    </ul></div>
+    <div class="ss"><h3>Silla de ruedas en rampas ⭐</h3><ul>
+      <li><strong>Subiendo rampa:</strong> de frente (el cuidador empuja).</li>
+      <li><strong>Bajando rampa:</strong> <strong>de espaldas</strong> — el cuidador baja primero de espaldas controlando el descenso.</li>
+      <li>En superficies irregulares: inclinar ligeramente la silla hacia atrás (elevar ruedas delanteras).</li>
+    </ul></div>
+    <div class="ss"><h3>Movilización del paciente en la cama</h3><ul>
+      <li>Subir al paciente en la cama: utilizar sábana entremetida (reduce fricción).</li>
+      <li>Cambio de posición lateral: almohadas entre rodillas y en espalda para mantener la posición.</li>
+      <li>Paciente hemipléjico: el lado afectado necesita protección especial.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> Bastón en el lado SANO — aunque parezca más lógico el lado enfermo, va en el sano.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Silla de ruedas bajando rampa: de ESPALDAS (el cuidador baja de espaldas).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Camilla: cabeza hacia ADELANTE (a favor de la marcha).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Transferencia siempre hacia el lado SANO primero.</div>
+    <div class="mn">🧠 <strong>Bastón al lado sano</strong> → "El sano ayuda al enfermo": el bastón descarga la pierna enferma del lado opuesto</div>
+    <div class="qa"><div class="qa-q">¿En qué lado se coloca el bastón?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">En el lado SANO (contralateral a la pierna afectada).</div></div>
+    <div class="qa"><div class="qa-q">¿Cómo se baja una rampa con silla de ruedas?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">De espaldas: el cuidador baja primero de espaldas controlando el descenso.</div></div>
+    <div class="qa"><div class="qa-q">¿A qué altura se regulan las muletas axilares?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">A la altura del trocánter mayor, o 15 cm lateral al pie. La almohadilla axilar debe quedar 2-3 dedos por debajo de la axila.</div></div>
+  </div></div>
+</div>
+<!-- T9 -->
+<div class="section" id="t9">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--amber),#d35400)">
+    <h1>Tema 9 · Cuidados de los Ancianos. Higiene y Aseo Corporal. Aseo del Paciente Encamado. Posiciones Anatómicas. Preparación del Material para la Exploración Médica</h1>
+    <div class="meta">Páginas 375–436 del manual</div>
+    <div class="badges"><span class="bhigh badge">⭐⭐ MUY IMPORTANTE</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--peach)">1. Higiene del Paciente Encamado</h2><div class="body">
+    <div class="ss"><h3>1.1 Principios generales</h3><ul>
+      <li>La higiene es una necesidad básica que previene infecciones y mejora el bienestar.</li>
+      <li>Temperatura del agua: <strong>37-38ºC</strong> (tibia, nunca caliente).</li>
+      <li>Preservar siempre la <strong>intimidad y dignidad</strong> del paciente.</li>
+      <li>Aprovechar el aseo para observar el estado de la piel (lesiones, eritemas, UPP incipientes).</li>
+      <li>Comunicar cualquier hallazgo anormal al personal de enfermería.</li>
+    </ul></div>
+    <div class="ss"><h3>1.2 Orden correcto del aseo encamado ⭐⭐</h3>
+    <div class="stages">
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">1º</div><div><strong>Cara, cuello y orejas</strong> — con agua sin jabón en la cara si es posible. Limpiar de interior a exterior en ojos (de zona nasal hacia afuera).</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">2º</div><div><strong>Brazos y axilas</strong> — desde distal (manos) hacia proximal (hombros). Remojar bien las manos.</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">3º</div><div><strong>Tórax y abdomen</strong> — prestar atención a pliegues cutáneos (bajo los senos, ombligo).</div></div>
+      <div class="stage" style="background:#fef9e7"><div class="n" style="color:var(--amber)">4º</div><div><strong>Genitales</strong> — <strong>cambiar el agua antes de este paso</strong>. En la mujer: limpiar de delante hacia atrás (evitar infecciones urinarias). En el hombre: retraer prepucio, limpiar y devolver a posición normal.</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">5º</div><div><strong>Piernas y pies</strong> — desde proximal a distal. Secar bien entre los dedos.</div></div>
+      <div class="stage" style="background:#fef9e7"><div class="n" style="color:var(--amber)">6º</div><div><strong>Espalda y zona sacra</strong> — <strong>cambiar el agua antes de este paso</strong>. Aprovechar para cambio postural y valorar UPP.</div></div>
+    </div>
+    <div class="al warn"><div class="ai">⚠️</div><div>El agua debe cambiarse al menos <strong>antes de limpiar los genitales</strong> y <strong>antes de limpiar la espalda</strong>. En total: mínimo <strong>2 cambios de agua</strong>.</div></div></div>
+    <div class="ss"><h3>1.3 Higiene bucal del paciente inconsciente</h3><ul>
+      <li>Posición: <strong>cabeza ladeada</strong> (decúbito lateral) para evitar broncoaspiración.</li>
+      <li>Tener aspirador disponible y encendido.</li>
+      <li>Usar torundas/gasas empapadas — nunca cepillo solo (riesgo de morder).</li>
+      <li>Limpiar dientes, encías, paladar y lengua.</li>
+      <li>Vigilar presencia de lesiones orales.</li>
+      <li>Aplicar vaselina o crema en los labios (preferible crema de cacao).</li>
+    </ul></div>
+    <div class="ss"><h3>1.4 Cuidado del cabello en el paciente encamado</h3><ul>
+      <li><strong>Champú seco:</strong> aplicar sobre el cabello seco, masajear y retirar con toalla.</li>
+      <li><strong>Cuña inflable de lavado capilar:</strong> permite lavar el cabello con agua en la cama.</li>
+      <li>Secar siempre bien el cabello para evitar hipotermia y maceración del cuero cabelludo.</li>
+    </ul></div>
+    <div class="ss"><h3>1.5 Cuidado de las uñas</h3><ul>
+      <li>Cortar las uñas de las manos en curva siguiendo la forma del dedo.</li>
+      <li>Cortar las uñas de los pies en línea <strong>recta</strong> (especialmente en diabéticos).</li>
+      <li>Limar los bordes para evitar que corten la piel.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">2. Instrumentos de Exploración Médica ⭐⭐</h2><div class="body">
+    <div class="tw"><table><tr><th>Instrumento</th><th>Órgano / Sistema</th><th>Función</th></tr>
+    <tr><td><strong>Estetoscopio (fonendoscopio)</strong></td><td>Corazón, pulmones, intestinos, vasos</td><td>Auscultación de sonidos internos del organismo</td></tr>
+    <tr><td><strong>Esfigmomanómetro</strong></td><td>Sistema cardiovascular</td><td>Medición de la tensión arterial</td></tr>
+    <tr><td><strong>Otoscopio</strong></td><td>Oídos (conducto auditivo, tímpano)</td><td>Exploración visual del oído externo y tímpano</td></tr>
+    <tr><td><strong>Oftalmoscopio</strong></td><td>Ojos (fondo de ojo, retina)</td><td>Exploración del fondo de ojo</td></tr>
+    <tr><td><strong>Laringoscopio</strong></td><td>Laringe, cuerdas vocales</td><td>Visualización de la laringe; también para intubación</td></tr>
+    <tr><td><strong>Rinoscopio</strong></td><td>Fosas nasales</td><td>Exploración de la cavidad nasal</td></tr>
+    <tr><td><strong>Diapasón</strong></td><td>Sistema auditivo, sensibilidad vibratoria</td><td>Pruebas de audición (Rinne y Weber) y sensibilidad ósea</td></tr>
+    <tr><td><strong>Martillo de reflejos</strong></td><td>Sistema nervioso periférico</td><td>Exploración de reflejos tendinosos</td></tr>
+    <tr><td><strong>Depresor lingual</strong></td><td>Boca, faringe, amígdalas</td><td>Separar la lengua para visualizar la faringe</td></tr>
+    <tr><td><strong>Termómetro</strong></td><td>Temperatura corporal</td><td>Medición de la temperatura (axilar, oral, rectal)</td></tr>
+    <tr><td><strong>Pulsioxímetro</strong></td><td>Sangre arterial</td><td>Medición saturación de oxígeno (SpO2) y frecuencia cardíaca</td></tr>
+    <tr><td><strong>Glucómetro</strong></td><td>Sangre capilar</td><td>Medición de la glucemia capilar</td></tr>
+    </table></div>
+    <div class="mn">🧠 <strong>Truco prefijos:</strong> OTO = oído (griego <em>otos</em>) · OFTALMO = ojo (<em>ophthalmos</em>) · LARINGO = laringe · RINO = nariz → cada prefijo griego nombra su órgano.</div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">3. Preparación del paciente para la exploración</h2><div class="body">
+    <ul>
+      <li>Informar al paciente sobre el procedimiento que se va a realizar.</li>
+      <li>Garantizar la intimidad (biombos, cortinas).</li>
+      <li>Colocar al paciente en la posición adecuada para cada tipo de exploración.</li>
+      <li>Preparar y ordenar el material necesario en la bandeja de exploración.</li>
+      <li>Ayudar al médico durante la exploración entregando el material según lo solicite.</li>
+      <li>Tras la exploración: recoger y limpiar el material, recolocar al paciente en posición cómoda.</li>
+    </ul>
+    <div class="ss"><h3>Posiciones de exploración más habituales</h3>
+    <div class="tw"><table><tr><th>Tipo de exploración</th><th>Posición</th></tr>
+    <tr><td>Exploración general</td><td>Decúbito supino</td></tr>
+    <tr><td>Exploración ginecológica / sondaje</td><td>Litotomía (piernas en estribos)</td></tr>
+    <tr><td>Exploración rectal</td><td>Sims o genupectoral</td></tr>
+    <tr><td>Exploración respiratoria</td><td>Fowler o sentado</td></tr>
+    <tr><td>Paciente en shock</td><td>Trendelenburg</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> Otoscopio = oídos (no ojos). Oftalmoscopio = ojos (no oídos).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Temperatura del agua de aseo: <strong>37-38ºC</strong> (no 40ºC — puede quemar al anciano).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Higiene bucal del inconsciente: cabeza <strong>LADEADA</strong> (no en extensión — riesgo de aspiración).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Orden del aseo: los genitales (4º) NO son los últimos — después va la espalda (6º).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Mínimo 2 cambios de agua en el aseo encamado (antes de genitales y antes de espalda).</div>
+    <div class="qa"><div class="qa-q">¿Con qué instrumento se mide la tensión arterial?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Esfigmomanómetro (tensiómetro)</div></div>
+    <div class="qa"><div class="qa-q">¿Cuándo se cambia el agua durante el aseo encamado?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Al menos antes de limpiar los genitales y antes de limpiar la espalda (mínimo 2 cambios)</div></div>
+    <div class="qa"><div class="qa-q">¿En qué posición se limpia la boca del paciente inconsciente?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Cabeza ladeada (decúbito lateral), con aspirador disponible, para evitar broncoaspiración.</div></div>
+    <div class="qa"><div class="qa-q">¿Qué instrumento se usa para explorar los oídos?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Otoscopio</div></div>
+  </div></div>
+</div>
+
+<!-- T10 -->
+<div class="section" id="t10">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--amber),#d35400)">
+    <h1>Tema 10 · Cuidados del TCAE al Paciente Crónico y Terminal. Cuidados Físicos y Psicológicos</h1>
+    <div class="meta">Páginas 437–474 del manual</div>
+    <div class="badges"><span class="bhigh badge">⭐⭐ MUY IMPORTANTE</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--peach)">1. Cuidados Paliativos</h2><div class="body">
+    <div class="def"><div class="term">Cuidados Paliativos</div>Cuidados activos e integrales prestados a pacientes cuya enfermedad no responde a tratamiento curativo. El objetivo es la <strong>calidad de vida</strong> del paciente y su familia mediante el control de síntomas, el apoyo psicológico y el acompañamiento. <strong>No es eutanasia.</strong></div>
+    <div class="ss"><h3>1.1 Síntomas más frecuentes en el paciente terminal</h3><ul>
+      <li><strong>Dolor</strong> (el más temido por el paciente).</li>
+      <li><strong>Disnea</strong> (dificultad respiratoria).</li>
+      <li>Náuseas y vómitos.</li>
+      <li>Ansiedad y miedo.</li>
+      <li>Fatiga extrema.</li>
+      <li>Estreñimiento (secundario a opioides).</li>
+      <li>Anorexia y caquexia.</li>
+    </ul></div>
+    <div class="ss"><h3>1.2 Higiene bucal en el paciente terminal</h3><ul>
+      <li>Frecuencia elevada (sequedad de boca por medicación y respiración oral).</li>
+      <li>Infecciones orales más frecuentes: <strong>candidiasis</strong> (la más común), bacterianas, víricas (herpes).</li>
+      <li>Soluciones: desbridantes (quitan costras), antisépticas (gingivitis, aftas), anestésicas (dolor), antibióticos orales.</li>
+      <li>Aplicar crema de cacao en los labios (preferible a vaselina — menos sequedad a largo plazo).</li>
+    </ul></div>
+    <div class="ss"><h3>1.3 Comunicación con el paciente terminal</h3><ul>
+      <li>Escucha activa — el silencio también comunica.</li>
+      <li>No mentir; responder solo lo que el paciente pregunta.</li>
+      <li>No dar información que el paciente no quiera recibir.</li>
+      <li>El contacto físico (mano, hombro) tiene un valor terapéutico especial.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">2. Las 5 Fases del Duelo de Kübler-Ross ⭐⭐⭐</h2><div class="body">
+    <div class="stages">
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">1</div><div><strong>Negación:</strong> "No puede ser. Habrá un error." El paciente rechaza la realidad. Es una defensa natural. <em>Actitud: acompañar sin forzar la aceptación. No confrontar.</em></div></div>
+      <div class="stage" style="background:#fadbd8"><div class="n" style="color:var(--red)">2</div><div><strong>Ira:</strong> "¿Por qué a mí? No es justo." Rabia dirigida hacia médicos, familia o Dios. <em>Actitud: no tomarlo como ataque personal. Escuchar activamente. Mantener la calma.</em></div></div>
+      <div class="stage" style="background:#fef9e7"><div class="n" style="color:var(--amber)">3</div><div><strong>Negociación (Pacto):</strong> "Si me curo haré…" / "Si me pongo bien te prometo que…" Intento de retrasar lo inevitable mediante promesas. Buscan terapias alternativas. <em>Actitud: respetar sus creencias, integrar terapias beneficiosas.</em></div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">4</div><div><strong>Depresión:</strong> "¿Por qué ahora? ¿Se acaba aquí todo?" Tristeza profunda, silencio, desprendimiento de lo que le rodea. Es el inicio de la aceptación. <em>Actitud: facilitar la expresión emocional, no forzar la alegría, apoyo intenso.</em></div></div>
+      <div class="stage" style="background:#d5f5e3"><div class="n" style="color:var(--teal)">5</div><div><strong>Aceptación:</strong> "He cumplido con mi misión. Ya puedo morir tranquilo." Serenidad y paz. El paciente se prepara para la muerte. <em>Actitud: acompañar, comunicación en profundidad sobre miedos y preocupaciones.</em></div></div>
+    </div>
+    <div class="al warn"><div class="ai">⚠️</div><div>Las fases <strong>NO son lineales</strong>: pueden solaparse, saltarse o revertirse. No todos los pacientes pasan por todas las fases. Es un modelo orientativo, no una ley rígida.</div></div>
+    <div class="mn">🧠 <strong>"No Irás Negando tu Depresión — Acepta"</strong> → N·I·N·D·A → Negación · Ira · Negociación · Depresión · Aceptación</div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">3. La Agonía — Signos de Muerte Próxima</h2><div class="body">
+    <div class="def"><div class="term">Agonía</div>Fase final de la vida (horas a días) caracterizada por el deterioro progresivo e irreversible de todas las funciones vitales. El paciente se va desconectando del entorno.</div>
+    <div class="ss"><h3>Signos de agonía</h3><ul>
+      <li><strong>Estertores:</strong> ruido respiratorio por acumulación de secreciones que el paciente ya no puede expectorar. <strong>NO se aspiran activamente</strong> — es un proceso fisiológico normal del final de la vida; la aspiración no los resuelve y molesta al paciente.</li>
+      <li><strong>Respiración de Cheyne-Stokes:</strong> ciclos alternos de apnea e hiperpnea.</li>
+      <li><strong>Mandíbula caída</strong> (relajación muscular progresiva).</li>
+      <li><strong>Moteado cutáneo (livideces):</strong> decoloración moteada de la piel en parches.</li>
+      <li>Extremidades frías y cianóticas.</li>
+      <li>Pupilas midriáticas (dilatadas) y arreactivas.</li>
+      <li>Pérdida de consciencia progresiva.</li>
+      <li>Falta de respuesta a estímulos.</li>
+    </ul></div>
+    <div class="ss"><h3>Actitud de la TCAE en la agonía</h3><ul>
+      <li>Mantener la higiene y el confort del paciente.</li>
+      <li>Cuidados bucales frecuentes (sequedad intensa).</li>
+      <li>Acompañar al paciente — no dejarlo solo si es posible.</li>
+      <li>Apoyar a la familia y explicar que los estertores son normales.</li>
+      <li>Avisar al personal de enfermería ante cualquier cambio.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">4. Cuidados Post-Mortem</h2><div class="body">
+    <div class="al warn"><div class="ai">⏰</div><div>Se realizan a las <strong>2-4 horas después del fallecimiento</strong>, antes de que aparezca el rigor mortis (rigidez cadavérica), que comienza aproximadamente a las 2-4 horas del éxitus y alcanza su máximo a las 12 horas.</div></div>
+    <div class="ss"><h3>Procedimiento básico de cuidados post-mortem</h3><ol>
+      <li>Verificar el fallecimiento por el médico responsable.</li>
+      <li>Colocar al fallecido en decúbito supino, extremidades alineadas.</li>
+      <li>Cerrar los ojos (gasas húmedas si no cierran solos).</li>
+      <li>Cerrar la boca (venda mentoniana si es necesario).</li>
+      <li>Retirar vías, sondas y dispositivos (si el médico lo autoriza).</li>
+      <li>Realizar higiene corporal completa.</li>
+      <li>Amortajar o vestir según costumbres y protocolo del centro.</li>
+      <li>Etiquetar correctamente (nombre, fecha y hora del fallecimiento).</li>
+      <li>Recoger pertenencias y entregarlas a la familia con el inventario correspondiente.</li>
+      <li>Registrar todo el proceso en la documentación clínica.</li>
+    </ol></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--peach)">5. Apoyo a la Familia del Paciente Terminal</h2><div class="body">
+    <p>La familia también necesita apoyo durante el proceso de enfermedad terminal (duelo anticipatorio) y tras el fallecimiento.</p>
+    <div class="tw"><table><tr><th>Aspecto a valorar</th><th>Contenido</th></tr>
+    <tr><td><strong>Grado de información</strong></td><td>Saber qué miembros conocen el diagnóstico real y qué información se ha dado al paciente</td></tr>
+    <tr><td><strong>Expectativas familiares</strong></td><td>Dónde desean que acontezca la muerte, quién cuidará, qué conocen de los deseos del enfermo</td></tr>
+    <tr><td><strong>Identificación de roles</strong></td><td>Cuidador principal, secundarios y consejeros. Portavoz familiar</td></tr>
+    <tr><td><strong>Situación económica</strong></td><td>Si los recursos son suficientes para los cuidados en domicilio</td></tr>
+    </table></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> Los estertores en agonía NO se aspiran activamente — son normales y esperables al final de la vida.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Cuidados post-mortem a las <strong>2-4 horas</strong> — NO inmediatamente al fallecimiento.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Cuidados paliativos ≠ eutanasia. Objetivo = calidad de vida, no acelerar la muerte.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> La primera fase de Kübler-Ross es la <strong>NEGACIÓN</strong> (no la ira, no la aceptación).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Las fases de Kübler-Ross NO son obligatoriamente secuenciales ni completas en todos los pacientes.</div>
+    <div class="qa"><div class="qa-q">¿Cuáles son las 5 fases de Kübler-Ross en orden?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">1. Negación · 2. Ira · 3. Negociación · 4. Depresión · 5. Aceptación</div></div>
+    <div class="qa"><div class="qa-q">¿Cuándo se realizan los cuidados post-mortem?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">A las 2-4 horas del fallecimiento, antes de que aparezca el rigor mortis.</div></div>
+    <div class="qa"><div class="qa-q">¿Los estertores en agonía deben aspirarse activamente?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">NO. Son un proceso fisiológico normal del final de la vida. No se aspiran.</div></div>
+    <div class="qa"><div class="qa-q">¿Qué objetivo tienen los cuidados paliativos?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">Calidad de vida y alivio de síntomas — no la curación ni acelerar la muerte.</div></div>
+  </div></div>
+</div>
+
+<!-- T11 -->
+<div class="section" id="t11">
+  <div class="topic-header" style="background:linear-gradient(135deg,var(--blue),#1a5276)">
+    <h1>Tema 11 · Esquema y Desarrollo de los Cuidados de Enfermería al Anciano</h1>
+    <div class="meta">Páginas 475–488 del manual</div>
+    <div class="badges"><span class="bmid badge">⭐ SECUNDARIO</span><span class="bw badge">Repaso rápido última semana</span></div>
+  </div>
+
+  <div class="tb"><h2 style="background:var(--sky)">1. Proceso de Atención de Enfermería (PAE)</h2><div class="body">
+    <div class="def"><div class="term">PAE — Proceso de Atención de Enfermería</div>Método sistemático y organizado de planificación y aplicación de cuidados de enfermería. Garantiza la calidad y continuidad de los cuidados mediante un enfoque científico. La TCAE participa directamente en la fase de <strong>ejecución</strong> y en los <strong>registros</strong>.</div>
+    <div class="stages">
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">1</div><div><strong>Valoración:</strong> Recogida sistemática de datos del paciente (subjetivos y objetivos). Se usan los <strong>11 Patrones Funcionales de Marjory Gordon</strong> o las 14 Necesidades de Virginia Henderson. Incluye entrevista, observación y exploración.</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">2</div><div><strong>Diagnóstico enfermero:</strong> Identificación del problema de salud que la enfermería puede tratar. Formato <strong>PES</strong>: Problema + Etiología + Signos/síntomas. Clasificación taxonómica <strong>NANDA</strong>.</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">3</div><div><strong>Planificación:</strong> Establecimiento de objetivos medibles (<strong>NOC</strong>) e intervenciones (<strong>NIC</strong>). Priorización de cuidados. Elaboración del plan de cuidados individualizado.</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">4</div><div><strong>Ejecución:</strong> Implementación del plan de cuidados. Aquí participa directamente la <strong>TCAE</strong>. Requiere coordinación con el equipo multidisciplinar.</div></div>
+      <div class="stage" style="background:#d6eaf8"><div class="n" style="color:var(--blue)">5</div><div><strong>Evaluación:</strong> Comprobación de si se han alcanzado los objetivos planteados (usando los NOC). Readaptación del plan de cuidados si es necesario.</div></div>
+    </div>
+    <div class="mn">🧠 <strong>"VaDiPlanEjEval"</strong> → Valoración · Diagnóstico · Planificación · Ejecución · Evaluación</div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--sky)">2. Taxonomías de Enfermería</h2><div class="body">
+    <div class="tw"><table><tr><th>Taxonomía</th><th>Qué clasifica</th><th>Descripción</th></tr>
+    <tr><td><strong>NANDA</strong></td><td>Diagnósticos de enfermería</td><td>Problemas de salud que la enfermería puede identificar y tratar de forma independiente</td></tr>
+    <tr><td><strong>NIC</strong></td><td>Intervenciones de enfermería</td><td>Todo lo que la enfermera/TCAE hace para ayudar al paciente a conseguir los objetivos</td></tr>
+    <tr><td><strong>NOC</strong></td><td>Resultados en el paciente</td><td>Objetivos medibles que se esperan conseguir con las intervenciones planificadas</td></tr>
+    </table></div>
+    <div class="ss"><h3>11 Patrones Funcionales de Marjory Gordon</h3>
+    <div class="tw"><table><tr><th>Nº</th><th>Patrón</th></tr>
+    <tr><td>1</td><td>Percepción - Manejo de la salud</td></tr>
+    <tr><td>2</td><td>Nutricional - Metabólico</td></tr>
+    <tr><td>3</td><td>Eliminación</td></tr>
+    <tr><td>4</td><td>Actividad - Ejercicio</td></tr>
+    <tr><td>5</td><td>Sueño - Descanso</td></tr>
+    <tr><td>6</td><td>Cognitivo - Perceptivo</td></tr>
+    <tr><td>7</td><td>Autopercepción - Autoconcepto</td></tr>
+    <tr><td>8</td><td>Rol - Relaciones</td></tr>
+    <tr><td>9</td><td>Sexualidad - Reproducción</td></tr>
+    <tr><td>10</td><td>Adaptación - Tolerancia al estrés</td></tr>
+    <tr><td>11</td><td>Valores - Creencias</td></tr>
+    </table></div></div>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--sky)">3. Registros de Enfermería</h2><div class="body">
+    <div class="al danger"><div class="ai">📋</div><div>Los registros de enfermería son <strong>documentos legales</strong>. Nunca se borran ni se modifican con corrector. Los errores se tachan con una línea (que permita leer lo escrito), se anota la corrección y se firma con fecha y hora. La TCAE participa en los registros de las actividades que realiza.</div></div>
+    <ul>
+      <li>Deben ser: claros, precisos, completos, fechados y firmados.</li>
+      <li>Reflejan todo lo que se hace y se observa durante el cuidado del paciente.</li>
+      <li>Son la base para garantizar la continuidad de los cuidados.</li>
+      <li>Tienen valor legal en caso de reclamación o incidente.</li>
+    </ul>
+  </div></div>
+
+  <div class="tb"><h2 style="background:var(--lred)">⚠️ Trampas + ❓ Test rápido</h2><div class="body">
+    <div class="trap"><strong>⚠ Trampa:</strong> NANDA = diagnósticos (NO intervenciones). NIC = intervenciones (NO diagnósticos).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Marjory Gordon tiene <strong>11</strong> patrones (NO 14 — esas son las necesidades de Virginia Henderson).</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> Los registros son documentos legales — NO se pueden alterar con corrector.</div>
+    <div class="trap"><strong>⚠ Trampa:</strong> La TCAE participa en la fase de <strong>ejecución</strong> del PAE — no en el diagnóstico enfermero.</div>
+    <div class="qa"><div class="qa-q">¿Cuántas etapas tiene el PAE?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">5 etapas: Valoración · Diagnóstico · Planificación · Ejecución · Evaluación</div></div>
+    <div class="qa"><div class="qa-q">¿Qué taxonomía clasifica los diagnósticos de enfermería?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">NANDA (North American Nursing Diagnosis Association)</div></div>
+    <div class="qa"><div class="qa-q">¿Cuántos patrones funcionales tiene el modelo de Marjory Gordon?</div><button class="qa-btn" onclick="tog(this)">Ver respuesta</button><div class="qa-a">11 patrones funcionales</div></div>
+  </div></div>
+</div>
+</main>
+</div>
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(a => a.classList.remove('active'));
+  var sec = document.getElementById(id);
+  if (sec) sec.classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(function(a) {
+    var oc = a.getAttribute('onclick') || '';
+    if (oc.indexOf("'" + id + "'") !== -1) a.classList.add('active');
+  });
+  window.scrollTo(0, 0);
+}
+function tog(btn) {
+  var ans = btn.nextElementSibling;
+  if (!ans) return;
+  ans.classList.toggle('shown');
+  btn.textContent = ans.classList.contains('shown') ? 'Ocultar' : 'Ver respuesta';
+}
+window.addEventListener('scroll', function() {
+  var h = document.documentElement;
+  var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  var bar = document.getElementById('rbar');
+  if (bar) bar.style.width = pct + '%';
+});
+</script>
+</body>
+</html>
